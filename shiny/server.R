@@ -15,6 +15,12 @@ shinyServer(function(input,output,session){
   )
   
   
+  callModule(
+    fipsMapServer,
+    FIPS.MAP
+  )
+  
+  
   
   
   

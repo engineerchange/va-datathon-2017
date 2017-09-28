@@ -47,7 +47,7 @@ mapsTabBox <-
       # style = 'padding: 0px;',
       p("This interactive map displays the predicted risk of three health-related proxy readiness outcomes.
         Select a specific county on the map to view its risk"),
-      leafletOutput(NS(CSB.MAP)("fipsMap"))
+      leafletOutput(NS(FIPS.MAP)("fipsMap"))
     )
     # ,
     # tabPanel(
