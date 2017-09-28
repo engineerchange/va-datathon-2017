@@ -1,4 +1,4 @@
-,Year,County,Drug,DeathByYear,Rate,fips
+,Year,County,Drug,DeathByYear,Rate,GEOID
 0,2007,Accomack County,Benzodiazepine,0.0,0.0,51001
 1,2007,Albemarle County,Benzodiazepine,0.0,0.0,51003
 2,2007,Alexandria City,Benzodiazepine,0.0,0.0,51510
