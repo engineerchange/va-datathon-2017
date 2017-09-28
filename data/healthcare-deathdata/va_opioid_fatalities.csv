@@ -1,4 +1,4 @@
-,Year,County,Drug,DeathByYear,Rate,GEOID
+,Year,County,Drug,DeathByYear,Rate,fips
 0,2007,Accomack County,Benzodiazepine,0.0,0.0,51001
 1,2007,Albemarle County,Benzodiazepine,0.0,0.0,51003
 2,2007,Alexandria City,Benzodiazepine,0.0,0.0,51510
@@ -37,7 +37,7 @@
 35,2007,Dinwiddie County,Benzodiazepine,0.0,0.0,51053
 36,2007,Emporia City,Benzodiazepine,0.0,0.0,51595
 37,2007,Essex County,Benzodiazepine,0.0,0.0,51057
-38,2007,Fairfax City,Benzodiazepine,0.0,0.0,51059
+38,2007,Fairfax City,Benzodiazepine,0.0,0.0,51600
 39,2007,Fairfax County,Benzodiazepine,9.0,0.9,51059
 40,2007,Falls Church City,Benzodiazepine,0.0,0.0,51610
 41,2007,Fauquier County,Benzodiazepine,0.0,0.0,51061
@@ -171,7 +171,7 @@
 169,2008,Dinwiddie County,Benzodiazepine,1.0,3.8,51053
 170,2008,Emporia City,Benzodiazepine,1.0,17.7,51595
 171,2008,Essex County,Benzodiazepine,0.0,0.0,51057
-172,2008,Fairfax City,Benzodiazepine,1.0,4.2,51059
+172,2008,Fairfax City,Benzodiazepine,1.0,4.2,51600
 173,2008,Fairfax County,Benzodiazepine,9.0,0.9,51059
 174,2008,Falls Church City,Benzodiazepine,0.0,0.0,51610
 175,2008,Fauquier County,Benzodiazepine,0.0,0.0,51061
@@ -305,7 +305,7 @@
 303,2009,Dinwiddie County,Benzodiazepine,0.0,0.0,51053
 304,2009,Emporia City,Benzodiazepine,0.0,0.0,51595
 305,2009,Essex County,Benzodiazepine,0.0,0.0,51057
-306,2009,Fairfax City,Benzodiazepine,2.0,8.1,51059
+306,2009,Fairfax City,Benzodiazepine,2.0,8.1,51600
 307,2009,Fairfax County,Benzodiazepine,6.0,0.6,51059
 308,2009,Falls Church City,Benzodiazepine,0.0,0.0,51610
 309,2009,Fauquier County,Benzodiazepine,0.0,0.0,51061
@@ -439,7 +439,7 @@
 437,2010,Dinwiddie County,Benzodiazepine,0.0,0.0,51053
 438,2010,Emporia City,Benzodiazepine,0.0,0.0,51595
 439,2010,Essex County,Benzodiazepine,0.0,0.0,51057
-440,2010,Fairfax City,Benzodiazepine,1.0,4.4,51059
+440,2010,Fairfax City,Benzodiazepine,1.0,4.4,51600
 441,2010,Fairfax County,Benzodiazepine,12.0,1.1,51059
 442,2010,Falls Church City,Benzodiazepine,0.0,0.0,51610
 443,2010,Fauquier County,Benzodiazepine,4.0,6.1,51061
@@ -573,7 +573,7 @@
 571,2011,Dinwiddie County,Benzodiazepine,1.0,3.6,51053
 572,2011,Emporia City,Benzodiazepine,0.0,0.0,51595
 573,2011,Essex County,Benzodiazepine,0.0,0.0,51057
-574,2011,Fairfax City,Benzodiazepine,0.0,0.0,51059
+574,2011,Fairfax City,Benzodiazepine,0.0,0.0,51600
 575,2011,Fairfax County,Benzodiazepine,12.0,1.1,51059
 576,2011,Falls Church City,Benzodiazepine,1.0,7.8,51610
 577,2011,Fauquier County,Benzodiazepine,3.0,4.5,51061
@@ -707,7 +707,7 @@
 705,2012,Dinwiddie County,Benzodiazepine,0.0,0.0,51053
 706,2012,Emporia City,Benzodiazepine,0.0,0.0,51595
 707,2012,Essex County,Benzodiazepine,0.0,0.0,51057
-708,2012,Fairfax City,Benzodiazepine,0.0,0.0,51059
+708,2012,Fairfax City,Benzodiazepine,0.0,0.0,51600
 709,2012,Fairfax County,Benzodiazepine,16.0,1.4,51059
 710,2012,Falls Church City,Benzodiazepine,0.0,0.0,51610
 711,2012,Fauquier County,Benzodiazepine,2.0,3.0,51061
@@ -841,7 +841,7 @@
 839,2013,Dinwiddie County,Benzodiazepine,1.0,3.6,51053
 840,2013,Emporia City,Benzodiazepine,1.0,17.9,51595
 841,2013,Essex County,Benzodiazepine,0.0,0.0,51057
-842,2013,Fairfax City,Benzodiazepine,0.0,0.0,51059
+842,2013,Fairfax City,Benzodiazepine,0.0,0.0,51600
 843,2013,Fairfax County,Benzodiazepine,17.0,1.5,51059
 844,2013,Falls Church City,Benzodiazepine,0.0,0.0,51610
 845,2013,Fauquier County,Benzodiazepine,7.0,10.4,51061
@@ -975,7 +975,7 @@
 973,2014,Dinwiddie County,Benzodiazepine,0.0,0.0,51053
 974,2014,Emporia City,Benzodiazepine,0.0,0.0,51595
 975,2014,Essex County,Benzodiazepine,0.0,0.0,51057
-976,2014,Fairfax City,Benzodiazepine,2.0,8.2,51059
+976,2014,Fairfax City,Benzodiazepine,2.0,8.2,51600
 977,2014,Fairfax County,Benzodiazepine,15.0,1.3,51059
 978,2014,Falls Church City,Benzodiazepine,0.0,0.0,51610
 979,2014,Fauquier County,Benzodiazepine,5.0,7.3,51061
@@ -1109,7 +1109,7 @@
 1107,2015,Dinwiddie County,Benzodiazepine,0.0,0.0,51053
 1108,2015,Emporia City,Benzodiazepine,0.0,0.0,51595
 1109,2015,Essex County,Benzodiazepine,0.0,0.0,51057
-1110,2015,Fairfax City,Benzodiazepine,1.0,4.3,51059
+1110,2015,Fairfax City,Benzodiazepine,1.0,4.3,51600
 1111,2015,Fairfax County,Benzodiazepine,26.0,2.3,51059
 1112,2015,Falls Church City,Benzodiazepine,0.0,0.0,51610
 1113,2015,Fauquier County,Benzodiazepine,4.0,5.9,51061
@@ -1243,7 +1243,7 @@
 1241,2016,Dinwiddie County,Benzodiazepine,2.0,7.0,51053
 1242,2016,Emporia City,Benzodiazepine,0.0,0.0,51595
 1243,2016,Essex County,Benzodiazepine,0.0,0.0,51057
-1244,2016,Fairfax City,Benzodiazepine,1.0,4.3,51059
+1244,2016,Fairfax City,Benzodiazepine,1.0,4.3,51600
 1245,2016,Fairfax County,Benzodiazepine,20.0,1.8,51059
 1246,2016,Falls Church City,Benzodiazepine,0.0,0.0,51610
 1247,2016,Fauquier County,Benzodiazepine,6.0,8.8,51061
@@ -1377,7 +1377,7 @@
 1375,2017,Dinwiddie County,Benzodiazepine,0.0,,51053
 1376,2017,Emporia City,Benzodiazepine,0.0,,51595
 1377,2017,Essex County,Benzodiazepine,0.0,,51057
-1378,2017,Fairfax City,Benzodiazepine,0.0,,51059
+1378,2017,Fairfax City,Benzodiazepine,0.0,,51600
 1379,2017,Fairfax County,Benzodiazepine,10.0,,51059
 1380,2017,Falls Church City,Benzodiazepine,1.0,,51610
 1381,2017,Fauquier County,Benzodiazepine,0.0,,51061
@@ -1511,7 +1511,7 @@
 1509,2007,Dinwiddie County,Cocaine,0.0,0.0,51053
 1510,2007,Emporia City,Cocaine,1.0,17.8,51595
 1511,2007,Essex County,Cocaine,0.0,0.0,51057
-1512,2007,Fairfax City,Cocaine,1.0,4.28,51059
+1512,2007,Fairfax City,Cocaine,1.0,4.28,51600
 1513,2007,Fairfax County,Cocaine,14.0,1.39,51059
 1514,2007,Falls Church City,Cocaine,0.0,0.0,51610
 1515,2007,Fauquier County,Cocaine,1.0,1.51,51061
@@ -1645,7 +1645,7 @@
 1643,2008,Dinwiddie County,Cocaine,0.0,0.0,51053
 1644,2008,Emporia City,Cocaine,0.0,0.0,51595
 1645,2008,Essex County,Cocaine,0.0,0.0,51057
-1646,2008,Fairfax City,Cocaine,1.0,4.19,51059
+1646,2008,Fairfax City,Cocaine,1.0,4.19,51600
 1647,2008,Fairfax County,Cocaine,10.0,0.98,51059
 1648,2008,Falls Church City,Cocaine,0.0,0.0,51610
 1649,2008,Fauquier County,Cocaine,2.0,2.99,51061
@@ -1779,7 +1779,7 @@
 1777,2009,Dinwiddie County,Cocaine,0.0,0.0,51053
 1778,2009,Emporia City,Cocaine,0.0,0.0,51595
 1779,2009,Essex County,Cocaine,0.0,0.0,51057
-1780,2009,Fairfax City,Cocaine,0.0,0.0,51059
+1780,2009,Fairfax City,Cocaine,0.0,0.0,51600
 1781,2009,Fairfax County,Cocaine,3.0,0.29,51059
 1782,2009,Falls Church City,Cocaine,0.0,0.0,51610
 1783,2009,Fauquier County,Cocaine,4.0,5.88,51061
@@ -1913,7 +1913,7 @@
 1911,2010,Dinwiddie County,Cocaine,0.0,0.0,51053
 1912,2010,Emporia City,Cocaine,0.0,0.0,51595
 1913,2010,Essex County,Cocaine,0.0,0.0,51057
-1914,2010,Fairfax City,Cocaine,1.0,4.43,51059
+1914,2010,Fairfax City,Cocaine,1.0,4.43,51600
 1915,2010,Fairfax County,Cocaine,7.0,0.65,51059
 1916,2010,Falls Church City,Cocaine,0.0,0.0,51610
 1917,2010,Fauquier County,Cocaine,0.0,0.0,51061
@@ -2047,7 +2047,7 @@
 2045,2011,Dinwiddie County,Cocaine,0.0,0.0,51053
 2046,2011,Emporia City,Cocaine,0.0,0.0,51595
 2047,2011,Essex County,Cocaine,1.0,8.92,51057
-2048,2011,Fairfax City,Cocaine,0.0,0.0,51059
+2048,2011,Fairfax City,Cocaine,0.0,0.0,51600
 2049,2011,Fairfax County,Cocaine,9.0,0.82,51059
 2050,2011,Falls Church City,Cocaine,0.0,0.0,51610
 2051,2011,Fauquier County,Cocaine,1.0,1.51,51061
@@ -2181,7 +2181,7 @@
 2179,2012,Dinwiddie County,Cocaine,0.0,0.0,51053
 2180,2012,Emporia City,Cocaine,0.0,0.0,51595
 2181,2012,Essex County,Cocaine,0.0,0.0,51057
-2182,2012,Fairfax City,Cocaine,0.0,0.0,51059
+2182,2012,Fairfax City,Cocaine,0.0,0.0,51600
 2183,2012,Fairfax County,Cocaine,6.0,0.54,51059
 2184,2012,Falls Church City,Cocaine,0.0,0.0,51610
 2185,2012,Fauquier County,Cocaine,1.0,1.5,51061
@@ -2315,7 +2315,7 @@
 2313,2013,Dinwiddie County,Cocaine,1.0,3.58,51053
 2314,2013,Emporia City,Cocaine,1.0,17.9,51595
 2315,2013,Essex County,Cocaine,0.0,0.0,51057
-2316,2013,Fairfax City,Cocaine,1.0,4.17,51059
+2316,2013,Fairfax City,Cocaine,1.0,4.17,51600
 2317,2013,Fairfax County,Cocaine,8.0,0.71,51059
 2318,2013,Falls Church City,Cocaine,0.0,0.0,51610
 2319,2013,Fauquier County,Cocaine,1.0,1.49,51061
@@ -2449,7 +2449,7 @@
 2447,2014,Dinwiddie County,Cocaine,1.0,3.59,51053
 2448,2014,Emporia City,Cocaine,0.0,0.0,51595
 2449,2014,Essex County,Cocaine,0.0,0.0,51057
-2450,2014,Fairfax City,Cocaine,0.0,0.0,51059
+2450,2014,Fairfax City,Cocaine,0.0,0.0,51600
 2451,2014,Fairfax County,Cocaine,4.0,0.35,51059
 2452,2014,Falls Church City,Cocaine,0.0,0.0,51610
 2453,2014,Fauquier County,Cocaine,2.0,2.93,51061
@@ -2583,7 +2583,7 @@
 2581,2015,Dinwiddie County,Cocaine,1.0,3.48,51053
 2582,2015,Emporia City,Cocaine,0.0,0.0,51595
 2583,2015,Essex County,Cocaine,0.0,0.0,51057
-2584,2015,Fairfax City,Cocaine,3.0,12.93,51059
+2584,2015,Fairfax City,Cocaine,3.0,12.93,51600
 2585,2015,Fairfax County,Cocaine,13.0,1.15,51059
 2586,2015,Falls Church City,Cocaine,0.0,0.0,51610
 2587,2015,Fauquier County,Cocaine,1.0,1.47,51061
@@ -2717,7 +2717,7 @@
 2715,2016,Dinwiddie County,Cocaine,2.0,6.96,51053
 2716,2016,Emporia City,Cocaine,0.0,0.0,51595
 2717,2016,Essex County,Cocaine,0.0,0.0,51057
-2718,2016,Fairfax City,Cocaine,0.0,0.0,51059
+2718,2016,Fairfax City,Cocaine,0.0,0.0,51600
 2719,2016,Fairfax County,Cocaine,19.0,1.68,51059
 2720,2016,Falls Church City,Cocaine,0.0,0.0,51610
 2721,2016,Fauquier County,Cocaine,5.0,7.36,51061
@@ -2851,7 +2851,7 @@
 2849,2017,Dinwiddie County,Cocaine,0.0,,51053
 2850,2017,Emporia City,Cocaine,0.0,,51595
 2851,2017,Essex County,Cocaine,0.0,,51057
-2852,2017,Fairfax City,Cocaine,0.0,,51059
+2852,2017,Fairfax City,Cocaine,0.0,,51600
 2853,2017,Fairfax County,Cocaine,13.0,,51059
 2854,2017,Falls Church City,Cocaine,0.0,,51610
 2855,2017,Fauquier County,Cocaine,0.0,,51061
@@ -2985,7 +2985,7 @@
 2983,2007,Dinwiddie County,Fentanyl,0.0,0.0,51053
 2984,2007,Emporia City,Fentanyl,1.0,17.8,51595
 2985,2007,Essex County,Fentanyl,0.0,0.0,51057
-2986,2007,Fairfax City,Fentanyl,0.0,0.0,51059
+2986,2007,Fairfax City,Fentanyl,0.0,0.0,51600
 2987,2007,Fairfax County,Fentanyl,4.0,0.4,51059
 2988,2007,Falls Church City,Fentanyl,0.0,0.0,51610
 2989,2007,Fauquier County,Fentanyl,1.0,1.51,51061
@@ -3119,7 +3119,7 @@
 3117,2008,Dinwiddie County,Fentanyl,1.0,3.83,51053
 3118,2008,Emporia City,Fentanyl,0.0,0.0,51595
 3119,2008,Essex County,Fentanyl,0.0,0.0,51057
-3120,2008,Fairfax City,Fentanyl,0.0,0.0,51059
+3120,2008,Fairfax City,Fentanyl,0.0,0.0,51600
 3121,2008,Fairfax County,Fentanyl,0.0,0.0,51059
 3122,2008,Falls Church City,Fentanyl,0.0,0.0,51610
 3123,2008,Fauquier County,Fentanyl,0.0,0.0,51061
@@ -3253,7 +3253,7 @@
 3251,2009,Dinwiddie County,Fentanyl,0.0,0.0,51053
 3252,2009,Emporia City,Fentanyl,0.0,0.0,51595
 3253,2009,Essex County,Fentanyl,0.0,0.0,51057
-3254,2009,Fairfax City,Fentanyl,0.0,0.0,51059
+3254,2009,Fairfax City,Fentanyl,0.0,0.0,51600
 3255,2009,Fairfax County,Fentanyl,0.0,0.0,51059
 3256,2009,Falls Church City,Fentanyl,0.0,0.0,51610
 3257,2009,Fauquier County,Fentanyl,0.0,0.0,51061
@@ -3387,7 +3387,7 @@
 3385,2010,Dinwiddie County,Fentanyl,0.0,0.0,51053
 3386,2010,Emporia City,Fentanyl,0.0,0.0,51595
 3387,2010,Essex County,Fentanyl,0.0,0.0,51057
-3388,2010,Fairfax City,Fentanyl,0.0,0.0,51059
+3388,2010,Fairfax City,Fentanyl,0.0,0.0,51600
 3389,2010,Fairfax County,Fentanyl,1.0,0.09,51059
 3390,2010,Falls Church City,Fentanyl,0.0,0.0,51610
 3391,2010,Fauquier County,Fentanyl,0.0,0.0,51061
@@ -3521,7 +3521,7 @@
 3519,2011,Dinwiddie County,Fentanyl,1.0,3.58,51053
 3520,2011,Emporia City,Fentanyl,0.0,0.0,51595
 3521,2011,Essex County,Fentanyl,0.0,0.0,51057
-3522,2011,Fairfax City,Fentanyl,0.0,0.0,51059
+3522,2011,Fairfax City,Fentanyl,0.0,0.0,51600
 3523,2011,Fairfax County,Fentanyl,0.0,0.0,51059
 3524,2011,Falls Church City,Fentanyl,0.0,0.0,51610
 3525,2011,Fauquier County,Fentanyl,0.0,0.0,51061
@@ -3655,7 +3655,7 @@
 3653,2012,Dinwiddie County,Fentanyl,0.0,0.0,51053
 3654,2012,Emporia City,Fentanyl,0.0,0.0,51595
 3655,2012,Essex County,Fentanyl,0.0,0.0,51057
-3656,2012,Fairfax City,Fentanyl,0.0,0.0,51059
+3656,2012,Fairfax City,Fentanyl,0.0,0.0,51600
 3657,2012,Fairfax County,Fentanyl,2.0,0.18,51059
 3658,2012,Falls Church City,Fentanyl,0.0,0.0,51610
 3659,2012,Fauquier County,Fentanyl,0.0,0.0,51061
@@ -3789,7 +3789,7 @@
 3787,2013,Dinwiddie County,Fentanyl,1.0,3.58,51053
 3788,2013,Emporia City,Fentanyl,0.0,0.0,51595
 3789,2013,Essex County,Fentanyl,0.0,0.0,51057
-3790,2013,Fairfax City,Fentanyl,0.0,0.0,51059
+3790,2013,Fairfax City,Fentanyl,0.0,0.0,51600
 3791,2013,Fairfax County,Fentanyl,7.0,0.62,51059
 3792,2013,Falls Church City,Fentanyl,0.0,0.0,51610
 3793,2013,Fauquier County,Fentanyl,0.0,0.0,51061
@@ -3923,7 +3923,7 @@
 3921,2014,Dinwiddie County,Fentanyl,0.0,0.0,51053
 3922,2014,Emporia City,Fentanyl,0.0,0.0,51595
 3923,2014,Essex County,Fentanyl,0.0,0.0,51057
-3924,2014,Fairfax City,Fentanyl,2.0,8.17,51059
+3924,2014,Fairfax City,Fentanyl,2.0,8.17,51600
 3925,2014,Fairfax County,Fentanyl,13.0,1.14,51059
 3926,2014,Falls Church City,Fentanyl,0.0,0.0,51610
 3927,2014,Fauquier County,Fentanyl,1.0,1.47,51061
@@ -4057,7 +4057,7 @@
 4055,2015,Dinwiddie County,Fentanyl,0.0,0.0,51053
 4056,2015,Emporia City,Fentanyl,0.0,0.0,51595
 4057,2015,Essex County,Fentanyl,0.0,0.0,51057
-4058,2015,Fairfax City,Fentanyl,1.0,4.31,51059
+4058,2015,Fairfax City,Fentanyl,1.0,4.31,51600
 4059,2015,Fairfax County,Fentanyl,13.0,1.15,51059
 4060,2015,Falls Church City,Fentanyl,0.0,0.0,51610
 4061,2015,Fauquier County,Fentanyl,4.0,5.89,51061
@@ -4191,7 +4191,7 @@
 4189,2016,Dinwiddie County,Fentanyl,2.0,6.96,51053
 4190,2016,Emporia City,Fentanyl,0.0,0.0,51595
 4191,2016,Essex County,Fentanyl,0.0,0.0,51057
-4192,2016,Fairfax City,Fentanyl,0.0,0.0,51059
+4192,2016,Fairfax City,Fentanyl,0.0,0.0,51600
 4193,2016,Fairfax County,Fentanyl,54.0,4.78,51059
 4194,2016,Falls Church City,Fentanyl,0.0,0.0,51610
 4195,2016,Fauquier County,Fentanyl,14.0,20.62,51061
@@ -4325,7 +4325,7 @@
 4323,2017,Dinwiddie County,Fentanyl,0.0,,51053
 4324,2017,Emporia City,Fentanyl,0.0,,51595
 4325,2017,Essex County,Fentanyl,0.0,,51057
-4326,2017,Fairfax City,Fentanyl,2.0,,51059
+4326,2017,Fairfax City,Fentanyl,2.0,,51600
 4327,2017,Fairfax County,Fentanyl,29.0,,51059
 4328,2017,Falls Church City,Fentanyl,1.0,,51610
 4329,2017,Fauquier County,Fentanyl,0.0,,51061
@@ -4459,7 +4459,7 @@
 4457,2007,Dinwiddie County,Heroin,0.0,0.0,51053
 4458,2007,Emporia City,Heroin,0.0,0.0,51595
 4459,2007,Essex County,Heroin,0.0,0.0,51057
-4460,2007,Fairfax City,Heroin,2.0,8.57,51059
+4460,2007,Fairfax City,Heroin,2.0,8.57,51600
 4461,2007,Fairfax County,Heroin,11.0,1.09,51059
 4462,2007,Falls Church City,Heroin,0.0,0.0,51610
 4463,2007,Fauquier County,Heroin,0.0,0.0,51061
@@ -4593,7 +4593,7 @@
 4591,2008,Dinwiddie County,Heroin,0.0,0.0,51053
 4592,2008,Emporia City,Heroin,0.0,0.0,51595
 4593,2008,Essex County,Heroin,0.0,0.0,51057
-4594,2008,Fairfax City,Heroin,0.0,0.0,51059
+4594,2008,Fairfax City,Heroin,0.0,0.0,51600
 4595,2008,Fairfax County,Heroin,12.0,1.18,51059
 4596,2008,Falls Church City,Heroin,0.0,0.0,51610
 4597,2008,Fauquier County,Heroin,3.0,4.49,51061
@@ -4727,7 +4727,7 @@
 4725,2009,Dinwiddie County,Heroin,0.0,0.0,51053
 4726,2009,Emporia City,Heroin,0.0,0.0,51595
 4727,2009,Essex County,Heroin,0.0,0.0,51057
-4728,2009,Fairfax City,Heroin,0.0,0.0,51059
+4728,2009,Fairfax City,Heroin,0.0,0.0,51600
 4729,2009,Fairfax County,Heroin,11.0,1.06,51059
 4730,2009,Falls Church City,Heroin,0.0,0.0,51610
 4731,2009,Fauquier County,Heroin,1.0,1.47,51061
@@ -4861,7 +4861,7 @@
 4859,2010,Dinwiddie County,Heroin,0.0,0.0,51053
 4860,2010,Emporia City,Heroin,0.0,0.0,51595
 4861,2010,Essex County,Heroin,0.0,0.0,51057
-4862,2010,Fairfax City,Heroin,0.0,0.0,51059
+4862,2010,Fairfax City,Heroin,0.0,0.0,51600
 4863,2010,Fairfax County,Heroin,2.0,0.18,51059
 4864,2010,Falls Church City,Heroin,1.0,8.11,51610
 4865,2010,Fauquier County,Heroin,2.0,3.07,51061
@@ -4995,7 +4995,7 @@
 4993,2011,Dinwiddie County,Heroin,0.0,0.0,51053
 4994,2011,Emporia City,Heroin,0.0,0.0,51595
 4995,2011,Essex County,Heroin,0.0,0.0,51057
-4996,2011,Fairfax City,Heroin,0.0,0.0,51059
+4996,2011,Fairfax City,Heroin,0.0,0.0,51600
 4997,2011,Fairfax County,Heroin,9.0,0.82,51059
 4998,2011,Falls Church City,Heroin,0.0,0.0,51610
 4999,2011,Fauquier County,Heroin,0.0,0.0,51061
@@ -5129,7 +5129,7 @@
 5127,2012,Dinwiddie County,Heroin,0.0,0.0,51053
 5128,2012,Emporia City,Heroin,0.0,0.0,51595
 5129,2012,Essex County,Heroin,0.0,0.0,51057
-5130,2012,Fairfax City,Heroin,1.0,4.26,51059
+5130,2012,Fairfax City,Heroin,1.0,4.26,51600
 5131,2012,Fairfax County,Heroin,10.0,0.89,51059
 5132,2012,Falls Church City,Heroin,0.0,0.0,51610
 5133,2012,Fauquier County,Heroin,3.0,4.51,51061
@@ -5263,7 +5263,7 @@
 5261,2013,Dinwiddie County,Heroin,1.0,3.58,51053
 5262,2013,Emporia City,Heroin,0.0,0.0,51595
 5263,2013,Essex County,Heroin,0.0,0.0,51057
-5264,2013,Fairfax City,Heroin,1.0,4.17,51059
+5264,2013,Fairfax City,Heroin,1.0,4.17,51600
 5265,2013,Fairfax County,Heroin,7.0,0.62,51059
 5266,2013,Falls Church City,Heroin,0.0,0.0,51610
 5267,2013,Fauquier County,Heroin,3.0,4.46,51061
@@ -5397,7 +5397,7 @@
 5395,2014,Dinwiddie County,Heroin,0.0,0.0,51053
 5396,2014,Emporia City,Heroin,0.0,0.0,51595
 5397,2014,Essex County,Heroin,0.0,0.0,51057
-5398,2014,Fairfax City,Heroin,1.0,4.08,51059
+5398,2014,Fairfax City,Heroin,1.0,4.08,51600
 5399,2014,Fairfax County,Heroin,23.0,2.02,51059
 5400,2014,Falls Church City,Heroin,0.0,0.0,51610
 5401,2014,Fauquier County,Heroin,2.0,2.93,51061
@@ -5531,7 +5531,7 @@
 5529,2015,Dinwiddie County,Heroin,1.0,3.48,51053
 5530,2015,Emporia City,Heroin,0.0,0.0,51595
 5531,2015,Essex County,Heroin,0.0,0.0,51057
-5532,2015,Fairfax City,Heroin,1.0,4.31,51059
+5532,2015,Fairfax City,Heroin,1.0,4.31,51600
 5533,2015,Fairfax County,Heroin,32.0,2.83,51059
 5534,2015,Falls Church City,Heroin,0.0,0.0,51610
 5535,2015,Fauquier County,Heroin,7.0,10.31,51061
@@ -5665,7 +5665,7 @@
 5663,2016,Dinwiddie County,Heroin,0.0,0.0,51053
 5664,2016,Emporia City,Heroin,0.0,0.0,51595
 5665,2016,Essex County,Heroin,1.0,9.16,51057
-5666,2016,Fairfax City,Heroin,0.0,0.0,51059
+5666,2016,Fairfax City,Heroin,0.0,0.0,51600
 5667,2016,Fairfax County,Heroin,30.0,2.66,51059
 5668,2016,Falls Church City,Heroin,0.0,0.0,51610
 5669,2016,Fauquier County,Heroin,9.0,13.26,51061
@@ -5799,7 +5799,7 @@
 5797,2017,Dinwiddie County,Heroin,0.0,,51053
 5798,2017,Emporia City,Heroin,0.0,,51595
 5799,2017,Essex County,Heroin,0.0,,51057
-5800,2017,Fairfax City,Heroin,1.0,,51059
+5800,2017,Fairfax City,Heroin,1.0,,51600
 5801,2017,Fairfax County,Heroin,12.0,,51059
 5802,2017,Falls Church City,Heroin,1.0,,51610
 5803,2017,Fauquier County,Heroin,0.0,,51061
@@ -5933,7 +5933,7 @@
 5931,2007,Dinwiddie County,Prescription,0.0,0.0,51053
 5932,2007,Emporia City,Prescription,0.0,0.0,51595
 5933,2007,Essex County,Prescription,0.0,0.0,51057
-5934,2007,Fairfax City,Prescription,1.0,4.28,51059
+5934,2007,Fairfax City,Prescription,1.0,4.28,51600
 5935,2007,Fairfax County,Prescription,33.0,3.27,51059
 5936,2007,Falls Church City,Prescription,0.0,0.0,51610
 5937,2007,Fauquier County,Prescription,8.0,12.06,51061
@@ -6067,7 +6067,7 @@
 6065,2008,Dinwiddie County,Prescription,2.0,7.67,51053
 6066,2008,Emporia City,Prescription,1.0,17.72,51595
 6067,2008,Essex County,Prescription,0.0,0.0,51057
-6068,2008,Fairfax City,Prescription,2.0,8.39,51059
+6068,2008,Fairfax City,Prescription,2.0,8.39,51600
 6069,2008,Fairfax County,Prescription,27.0,2.66,51059
 6070,2008,Falls Church City,Prescription,0.0,0.0,51610
 6071,2008,Fauquier County,Prescription,3.0,4.49,51061
@@ -6201,7 +6201,7 @@
 6199,2009,Dinwiddie County,Prescription,1.0,3.8,51053
 6200,2009,Emporia City,Prescription,0.0,0.0,51595
 6201,2009,Essex County,Prescription,1.0,8.94,51057
-6202,2009,Fairfax City,Prescription,2.0,8.11,51059
+6202,2009,Fairfax City,Prescription,2.0,8.11,51600
 6203,2009,Fairfax County,Prescription,22.0,2.12,51059
 6204,2009,Falls Church City,Prescription,0.0,0.0,51610
 6205,2009,Fauquier County,Prescription,3.0,4.41,51061
@@ -6335,7 +6335,7 @@
 6333,2010,Dinwiddie County,Prescription,1.0,3.57,51053
 6334,2010,Emporia City,Prescription,0.0,0.0,51595
 6335,2010,Essex County,Prescription,1.0,8.97,51057
-6336,2010,Fairfax City,Prescription,1.0,4.43,51059
+6336,2010,Fairfax City,Prescription,1.0,4.43,51600
 6337,2010,Fairfax County,Prescription,26.0,2.4,51059
 6338,2010,Falls Church City,Prescription,0.0,0.0,51610
 6339,2010,Fauquier County,Prescription,8.0,12.27,51061
@@ -6469,7 +6469,7 @@
 6467,2011,Dinwiddie County,Prescription,0.0,0.0,51053
 6468,2011,Emporia City,Prescription,0.0,0.0,51595
 6469,2011,Essex County,Prescription,0.0,0.0,51057
-6470,2011,Fairfax City,Prescription,0.0,0.0,51059
+6470,2011,Fairfax City,Prescription,0.0,0.0,51600
 6471,2011,Fairfax County,Prescription,31.0,2.82,51059
 6472,2011,Falls Church City,Prescription,1.0,7.84,51610
 6473,2011,Fauquier County,Prescription,7.0,10.59,51061
@@ -6603,7 +6603,7 @@
 6601,2012,Dinwiddie County,Prescription,0.0,0.0,51053
 6602,2012,Emporia City,Prescription,0.0,0.0,51595
 6603,2012,Essex County,Prescription,0.0,0.0,51057
-6604,2012,Fairfax City,Prescription,3.0,12.79,51059
+6604,2012,Fairfax City,Prescription,3.0,12.79,51600
 6605,2012,Fairfax County,Prescription,34.0,3.04,51059
 6606,2012,Falls Church City,Prescription,0.0,0.0,51610
 6607,2012,Fauquier County,Prescription,3.0,4.51,51061
@@ -6737,7 +6737,7 @@
 6735,2013,Dinwiddie County,Prescription,0.0,0.0,51053
 6736,2013,Emporia City,Prescription,1.0,17.9,51595
 6737,2013,Essex County,Prescription,0.0,0.0,51057
-6738,2013,Fairfax City,Prescription,0.0,0.0,51059
+6738,2013,Fairfax City,Prescription,0.0,0.0,51600
 6739,2013,Fairfax County,Prescription,32.0,2.83,51059
 6740,2013,Falls Church City,Prescription,0.0,0.0,51610
 6741,2013,Fauquier County,Prescription,8.0,11.9,51061
@@ -6871,7 +6871,7 @@
 6869,2014,Dinwiddie County,Prescription,0.0,0.0,51053
 6870,2014,Emporia City,Prescription,0.0,0.0,51595
 6871,2014,Essex County,Prescription,0.0,0.0,51057
-6872,2014,Fairfax City,Prescription,1.0,4.08,51059
+6872,2014,Fairfax City,Prescription,1.0,4.08,51600
 6873,2014,Fairfax County,Prescription,30.0,2.64,51059
 6874,2014,Falls Church City,Prescription,0.0,0.0,51610
 6875,2014,Fauquier County,Prescription,6.0,8.79,51061
@@ -7005,7 +7005,7 @@
 7003,2015,Dinwiddie County,Prescription,1.0,3.48,51053
 7004,2015,Emporia City,Prescription,0.0,0.0,51595
 7005,2015,Essex County,Prescription,0.0,0.0,51057
-7006,2015,Fairfax City,Prescription,3.0,12.93,51059
+7006,2015,Fairfax City,Prescription,3.0,12.93,51600
 7007,2015,Fairfax County,Prescription,29.0,2.57,51059
 7008,2015,Falls Church City,Prescription,0.0,0.0,51610
 7009,2015,Fauquier County,Prescription,6.0,8.84,51061
@@ -7139,7 +7139,7 @@
 7137,2016,Dinwiddie County,Prescription,1.0,3.48,51053
 7138,2016,Emporia City,Prescription,0.0,0.0,51595
 7139,2016,Essex County,Prescription,1.0,9.16,51057
-7140,2016,Fairfax City,Prescription,1.0,4.31,51059
+7140,2016,Fairfax City,Prescription,1.0,4.31,51600
 7141,2016,Fairfax County,Prescription,34.0,3.01,51059
 7142,2016,Falls Church City,Prescription,0.0,0.0,51610
 7143,2016,Fauquier County,Prescription,9.0,13.26,51061
@@ -7273,7 +7273,7 @@
 7271,2017,Dinwiddie County,Prescription,0.0,,51053
 7272,2017,Emporia City,Prescription,0.0,,51595
 7273,2017,Essex County,Prescription,0.0,,51057
-7274,2017,Fairfax City,Prescription,1.0,,51059
+7274,2017,Fairfax City,Prescription,1.0,,51600
 7275,2017,Fairfax County,Prescription,13.0,,51059
 7276,2017,Falls Church City,Prescription,2.0,,51610
 7277,2017,Fauquier County,Prescription,1.0,,51061
@@ -7407,7 +7407,7 @@
 7405,2007,Dinwiddie County,All Opioids,0.0,0.0,51053
 7406,2007,Emporia City,All Opioids,1.0,17.8,51595
 7407,2007,Essex County,All Opioids,0.0,0.0,51057
-7408,2007,Fairfax City,All Opioids,2.0,8.57,51059
+7408,2007,Fairfax City,All Opioids,2.0,8.57,51600
 7409,2007,Fairfax County,All Opioids,43.0,4.26,51059
 7410,2007,Falls Church City,All Opioids,0.0,0.0,51610
 7411,2007,Fauquier County,All Opioids,8.0,12.06,51061
@@ -7541,7 +7541,7 @@
 7539,2008,Dinwiddie County,All Opioids,3.0,11.5,51053
 7540,2008,Emporia City,All Opioids,1.0,17.72,51595
 7541,2008,Essex County,All Opioids,0.0,0.0,51057
-7542,2008,Fairfax City,All Opioids,2.0,8.39,51059
+7542,2008,Fairfax City,All Opioids,2.0,8.39,51600
 7543,2008,Fairfax County,All Opioids,30.0,2.95,51059
 7544,2008,Falls Church City,All Opioids,0.0,0.0,51610
 7545,2008,Fauquier County,All Opioids,4.0,5.98,51061
@@ -7675,7 +7675,7 @@
 7673,2009,Dinwiddie County,All Opioids,1.0,3.8,51053
 7674,2009,Emporia City,All Opioids,0.0,0.0,51595
 7675,2009,Essex County,All Opioids,1.0,8.94,51057
-7676,2009,Fairfax City,All Opioids,2.0,8.11,51059
+7676,2009,Fairfax City,All Opioids,2.0,8.11,51600
 7677,2009,Fairfax County,All Opioids,29.0,2.79,51059
 7678,2009,Falls Church City,All Opioids,0.0,0.0,51610
 7679,2009,Fauquier County,All Opioids,3.0,4.41,51061
@@ -7809,7 +7809,7 @@
 7807,2010,Dinwiddie County,All Opioids,1.0,3.57,51053
 7808,2010,Emporia City,All Opioids,0.0,0.0,51595
 7809,2010,Essex County,All Opioids,1.0,8.97,51057
-7810,2010,Fairfax City,All Opioids,1.0,4.43,51059
+7810,2010,Fairfax City,All Opioids,1.0,4.43,51600
 7811,2010,Fairfax County,All Opioids,27.0,2.5,51059
 7812,2010,Falls Church City,All Opioids,1.0,8.11,51610
 7813,2010,Fauquier County,All Opioids,8.0,12.27,51061
@@ -7943,7 +7943,7 @@
 7941,2011,Dinwiddie County,All Opioids,1.0,3.58,51053
 7942,2011,Emporia City,All Opioids,0.0,0.0,51595
 7943,2011,Essex County,All Opioids,0.0,0.0,51057
-7944,2011,Fairfax City,All Opioids,0.0,0.0,51059
+7944,2011,Fairfax City,All Opioids,0.0,0.0,51600
 7945,2011,Fairfax County,All Opioids,37.0,3.36,51059
 7946,2011,Falls Church City,All Opioids,1.0,7.84,51610
 7947,2011,Fauquier County,All Opioids,7.0,10.59,51061
@@ -8077,7 +8077,7 @@
 8075,2012,Dinwiddie County,All Opioids,0.0,0.0,51053
 8076,2012,Emporia City,All Opioids,0.0,0.0,51595
 8077,2012,Essex County,All Opioids,0.0,0.0,51057
-8078,2012,Fairfax City,All Opioids,3.0,12.79,51059
+8078,2012,Fairfax City,All Opioids,3.0,12.79,51600
 8079,2012,Fairfax County,All Opioids,42.0,3.75,51059
 8080,2012,Falls Church City,All Opioids,0.0,0.0,51610
 8081,2012,Fauquier County,All Opioids,5.0,7.51,51061
@@ -8211,7 +8211,7 @@
 8209,2013,Dinwiddie County,All Opioids,2.0,7.17,51053
 8210,2013,Emporia City,All Opioids,1.0,17.9,51595
 8211,2013,Essex County,All Opioids,0.0,0.0,51057
-8212,2013,Fairfax City,All Opioids,1.0,4.17,51059
+8212,2013,Fairfax City,All Opioids,1.0,4.17,51600
 8213,2013,Fairfax County,All Opioids,39.0,3.45,51059
 8214,2013,Falls Church City,All Opioids,0.0,0.0,51610
 8215,2013,Fauquier County,All Opioids,11.0,16.37,51061
@@ -8345,7 +8345,7 @@
 8343,2014,Dinwiddie County,All Opioids,0.0,0.0,51053
 8344,2014,Emporia City,All Opioids,0.0,0.0,51595
 8345,2014,Essex County,All Opioids,0.0,0.0,51057
-8346,2014,Fairfax City,All Opioids,4.0,16.34,51059
+8346,2014,Fairfax City,All Opioids,4.0,16.34,51600
 8347,2014,Fairfax County,All Opioids,50.0,4.4,51059
 8348,2014,Falls Church City,All Opioids,0.0,0.0,51610
 8349,2014,Fauquier County,All Opioids,8.0,11.72,51061
@@ -8479,7 +8479,7 @@
 8477,2015,Dinwiddie County,All Opioids,2.0,6.96,51053
 8478,2015,Emporia City,All Opioids,0.0,0.0,51595
 8479,2015,Essex County,All Opioids,0.0,0.0,51057
-8480,2015,Fairfax City,All Opioids,4.0,17.25,51059
+8480,2015,Fairfax City,All Opioids,4.0,17.25,51600
 8481,2015,Fairfax County,All Opioids,60.0,5.31,51059
 8482,2015,Falls Church City,All Opioids,0.0,0.0,51610
 8483,2015,Fauquier County,All Opioids,14.0,20.62,51061
@@ -8613,7 +8613,7 @@
 8611,2016,Dinwiddie County,All Opioids,3.0,10.43,51053
 8612,2016,Emporia City,All Opioids,0.0,0.0,51595
 8613,2016,Essex County,All Opioids,2.0,18.33,51057
-8614,2016,Fairfax City,All Opioids,1.0,4.31,51059
+8614,2016,Fairfax City,All Opioids,1.0,4.31,51600
 8615,2016,Fairfax County,All Opioids,80.0,7.08,51059
 8616,2016,Falls Church City,All Opioids,0.0,0.0,51610
 8617,2016,Fauquier County,All Opioids,23.0,33.87,51061
@@ -8747,7 +8747,7 @@
 8745,2017,Dinwiddie County,All Opioids,0.0,,51053
 8746,2017,Emporia City,All Opioids,0.0,,51595
 8747,2017,Essex County,All Opioids,0.0,,51057
-8748,2017,Fairfax City,All Opioids,2.0,,51059
+8748,2017,Fairfax City,All Opioids,2.0,,51600
 8749,2017,Fairfax County,All Opioids,37.0,,51059
 8750,2017,Falls Church City,All Opioids,2.0,,51610
 8751,2017,Fauquier County,All Opioids,1.0,,51061
@@ -8881,7 +8881,7 @@
 8879,2007,Dinwiddie County,All Drugs,0.0,0.0,51053
 8880,2007,Emporia City,All Drugs,2.0,35.59,51595
 8881,2007,Essex County,All Drugs,1.0,9.21,51057
-8882,2007,Fairfax City,All Drugs,3.0,12.85,51059
+8882,2007,Fairfax City,All Drugs,3.0,12.85,51600
 8883,2007,Fairfax County,All Drugs,57.0,5.64,51059
 8884,2007,Falls Church City,All Drugs,1.0,9.13,51610
 8885,2007,Fauquier County,All Drugs,9.0,13.57,51061
@@ -9015,7 +9015,7 @@
 9013,2008,Dinwiddie County,All Drugs,3.0,11.5,51053
 9014,2008,Emporia City,All Drugs,1.0,17.72,51595
 9015,2008,Essex County,All Drugs,0.0,0.0,51057
-9016,2008,Fairfax City,All Drugs,2.0,8.39,51059
+9016,2008,Fairfax City,All Drugs,2.0,8.39,51600
 9017,2008,Fairfax County,All Drugs,52.0,5.12,51059
 9018,2008,Falls Church City,All Drugs,0.0,0.0,51610
 9019,2008,Fauquier County,All Drugs,6.0,8.98,51061
@@ -9149,7 +9149,7 @@
 9147,2009,Dinwiddie County,All Drugs,2.0,7.59,51053
 9148,2009,Emporia City,All Drugs,0.0,0.0,51595
 9149,2009,Essex County,All Drugs,1.0,8.94,51057
-9150,2009,Fairfax City,All Drugs,3.0,12.16,51059
+9150,2009,Fairfax City,All Drugs,3.0,12.16,51600
 9151,2009,Fairfax County,All Drugs,42.0,4.05,51059
 9152,2009,Falls Church City,All Drugs,0.0,0.0,51610
 9153,2009,Fauquier County,All Drugs,6.0,8.82,51061
@@ -9283,7 +9283,7 @@
 9281,2010,Dinwiddie County,All Drugs,1.0,3.57,51053
 9282,2010,Emporia City,All Drugs,0.0,0.0,51595
 9283,2010,Essex County,All Drugs,1.0,8.97,51057
-9284,2010,Fairfax City,All Drugs,2.0,8.86,51059
+9284,2010,Fairfax City,All Drugs,2.0,8.86,51600
 9285,2010,Fairfax County,All Drugs,37.0,3.42,51059
 9286,2010,Falls Church City,All Drugs,1.0,8.11,51610
 9287,2010,Fauquier County,All Drugs,9.0,13.8,51061
@@ -9417,7 +9417,7 @@
 9415,2011,Dinwiddie County,All Drugs,2.0,7.16,51053
 9416,2011,Emporia City,All Drugs,0.0,0.0,51595
 9417,2011,Essex County,All Drugs,2.0,17.85,51057
-9418,2011,Fairfax City,All Drugs,0.0,0.0,51059
+9418,2011,Fairfax City,All Drugs,0.0,0.0,51600
 9419,2011,Fairfax County,All Drugs,56.0,5.09,51059
 9420,2011,Falls Church City,All Drugs,2.0,15.69,51610
 9421,2011,Fauquier County,All Drugs,9.0,13.62,51061
@@ -9551,7 +9551,7 @@
 9549,2012,Dinwiddie County,All Drugs,0.0,0.0,51053
 9550,2012,Emporia City,All Drugs,0.0,0.0,51595
 9551,2012,Essex County,All Drugs,0.0,0.0,51057
-9552,2012,Fairfax City,All Drugs,3.0,12.79,51059
+9552,2012,Fairfax City,All Drugs,3.0,12.79,51600
 9553,2012,Fairfax County,All Drugs,61.0,5.45,51059
 9554,2012,Falls Church City,All Drugs,0.0,0.0,51610
 9555,2012,Fauquier County,All Drugs,7.0,10.52,51061
@@ -9685,7 +9685,7 @@
 9683,2013,Dinwiddie County,All Drugs,3.0,10.75,51053
 9684,2013,Emporia City,All Drugs,2.0,35.79,51595
 9685,2013,Essex County,All Drugs,0.0,0.0,51057
-9686,2013,Fairfax City,All Drugs,3.0,12.51,51059
+9686,2013,Fairfax City,All Drugs,3.0,12.51,51600
 9687,2013,Fairfax County,All Drugs,55.0,4.86,51059
 9688,2013,Falls Church City,All Drugs,0.0,0.0,51610
 9689,2013,Fauquier County,All Drugs,11.0,16.37,51061
@@ -9819,7 +9819,7 @@
 9817,2014,Dinwiddie County,All Drugs,1.0,3.59,51053
 9818,2014,Emporia City,All Drugs,0.0,0.0,51595
 9819,2014,Essex County,All Drugs,0.0,0.0,51057
-9820,2014,Fairfax City,All Drugs,5.0,20.42,51059
+9820,2014,Fairfax City,All Drugs,5.0,20.42,51600
 9821,2014,Fairfax County,All Drugs,63.0,5.54,51059
 9822,2014,Falls Church City,All Drugs,1.0,7.35,51610
 9823,2014,Fauquier County,All Drugs,11.0,16.12,51061
@@ -9953,7 +9953,7 @@
 9951,2015,Dinwiddie County,All Drugs,2.0,6.96,51053
 9952,2015,Emporia City,All Drugs,0.0,0.0,51595
 9953,2015,Essex County,All Drugs,0.0,0.0,51057
-9954,2015,Fairfax City,All Drugs,6.0,25.87,51059
+9954,2015,Fairfax City,All Drugs,6.0,25.87,51600
 9955,2015,Fairfax County,All Drugs,83.0,7.35,51059
 9956,2015,Falls Church City,All Drugs,0.0,0.0,51610
 9957,2015,Fauquier County,All Drugs,16.0,23.56,51061
@@ -10087,7 +10087,7 @@
 10085,2016,Dinwiddie County,All Drugs,6.0,20.87,51053
 10086,2016,Emporia City,All Drugs,0.0,0.0,51595
 10087,2016,Essex County,All Drugs,3.0,27.49,51057
-10088,2016,Fairfax City,All Drugs,1.0,4.31,51059
+10088,2016,Fairfax City,All Drugs,1.0,4.31,51600
 10089,2016,Fairfax County,All Drugs,103.0,9.12,51059
 10090,2016,Falls Church City,All Drugs,0.0,0.0,51610
 10091,2016,Fauquier County,All Drugs,25.0,36.82,51061
@@ -10221,7 +10221,7 @@
 10219,2017,Dinwiddie County,All Drugs,0.0,,51053
 10220,2017,Emporia City,All Drugs,0.0,,51595
 10221,2017,Essex County,All Drugs,0.0,,51057
-10222,2017,Fairfax City,All Drugs,2.0,,51059
+10222,2017,Fairfax City,All Drugs,2.0,,51600
 10223,2017,Fairfax County,All Drugs,41.0,,51059
 10224,2017,Falls Church City,All Drugs,3.0,,51610
 10225,2017,Fauquier County,All Drugs,2.0,,51061
