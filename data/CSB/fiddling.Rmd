@@ -1,0 +1,43 @@
+---
+title: "CSB Maps"
+author: "Jessica Bonnie"
+date: "9/28/2017"
+output: html_document
+---
+
+## Read in Shape Files and Key
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE)
+
+require(raster)
+require(dplyr)
+require(pander)
+require(leaflet)
+csb.shp <- raster::shapefile("./shapefiles/CSBfinal_1.shp")
+
+csb.key <- read.csv("./CSB_FIPS_GIS.csv")
+
+csb.only <- csb.key %>% group_by(CSBName, OBJECTID,FID) %>% summarize(count=n()) %>% arrange(OBJECTID)
+
+print(str(csb.shp))
+
+```
+
+## Draw a map
+
+
+
+```{r map}
+leaflet(csb.shp) %>% addTiles() %>% addPolygons(weight = 1)
+```
+
+## Get labels for map???
+
+Need to combine the CSB key with the shapefiles as a **SpatialPolygonsDataFrame** in order to give it labels .... 
+
+```{r makething}
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
