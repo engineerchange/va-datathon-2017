@@ -54,10 +54,28 @@ leaflet(test) %>% addTiles() %>% addLines(weight = 1) %>% addMarkers(label = ~CS
 ## Read in counties file from the census (start with 20m, lower resolution file)
 
 ```{r counties}
-counties.ogr <- readRDS("../Counties/counties_ogr_20m.rds")
+  # create counties ogr table from shape files from census.gov
 
-va.counties <- counties.ogr[as.numeric(as.character(counties.ogr$STATEFP)) == 51,]
+# counties.ogr.500k <- rgdal::readOGR(dsn = path.expand('~/Downloads/cb_2016_us_county_500k/'),layer='cb_2016_us_county_500k')
+#   counties.ogr.500k@data$GEOID<-as.character(counties.ogr.500k@data$GEOID)
+#   counties.ogr.500k@data$rec<-1:nrow(counties.ogr.500k@data)
 
+  # test <- rgeos::gSimplify(counties.ogr.500k,tol=.5,topologyPreserve=TRUE)
+  # test <- sp::SpatialPolygonsDataFrame(test,counties.ogr.500k@data)
+  # saveRDS(test,file="./data/counties_ogr_20m_gSimplify.rds")
+
+# saveRDS(counties.ogr.500k,file="../Counties/states_ogr_500k.rds")
+
+# counties.ogr <- readRDS("../Counties/counties_ogr_20m.rds")
+# counties.ogr.500k <- readRDS("../Counties/states_ogr_500k.rds")
+
+
+va.counties <- counties.ogr.500k[counties.ogr.500k$STATEFP==51,]
+saveRDS(va.counties,file="../counties/va_ogr_500k.rds")
+
+test <- union(va.counties,csb.ogr)
+
+leaflet(test) %>% addPolylines(weight)
 ```
 
 
