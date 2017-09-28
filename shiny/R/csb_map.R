@@ -42,7 +42,7 @@ csbMapServer <- function(input, output, session){
     
     tmp <- DATASETS$maps.df %>%
       leaflet() %>%
-      addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
+      # addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
       addPolygons(
         weight = 1,
         fillOpacity = 0.6,
