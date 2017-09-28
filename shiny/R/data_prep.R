@@ -7,7 +7,6 @@ datasets <- function() {
   
   opioid.fatalities <- read.csv("../data/healthcare-deathdata/va_opioid_fatalities.csv",header=T) %>%
     filter(!is.na(Rate)) %>%
-    filter( !GEOID %in% c(51059,51620,51760,51770)) %>%
     filter(Year == 2016,Drug =="All Drugs")
   maps.df <- merge(va.ogr,opioid.fatalities,by="GEOID")
   # county.lookup <- va.counties@data %>% 
