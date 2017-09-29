@@ -4,11 +4,11 @@
 
 fipsMapServer <- function(input, output, session){
   ns <- session$ns
-  all.drugs.pal <- makePalette(DATASET$maps.df[["2016"]]$`All Drugs`)
-  all.opioids.pal <- makePalette(DATASET$maps.df[["2016"]]$`All Opioids`)
-  heroin.pal <- makePalette(DATASET$maps.df[["2016"]]$`Heroin`)
-  prescription.pal <- makePalette(DATASET$maps.df[["2016"]]$`Prescription`)
-  fentanyl.pal <- makePalette(DATASET$maps.df[["2016"]]$Fentanyl)
+  all.drugs.pal <- makePalette(DATASETS$maps.df[["2016"]]$`All Drugs`)
+  all.opioids.pal <- makePalette(DATASETS$maps.df[["2016"]]$`All Opioids`)
+  heroin.pal <- makePalette(DATASETS$maps.df[["2016"]]$`Heroin`)
+  prescription.pal <- makePalette(DATASETS$maps.df[["2016"]]$`Prescription`)
+  fentanyl.pal <- makePalette(DATASETS$maps.df[["2016"]]$Fentanyl)
   
   
   # fatalPalette <- reactive({
