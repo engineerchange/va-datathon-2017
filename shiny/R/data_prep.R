@@ -51,7 +51,7 @@ datasets <- function() {
   bonnie2015 <- read.csv("../data/2015master.csv",stringsAsFactors = FALSE) %>%
     mutate(GEOCODE = as.character(FIPS.Code)) %>% 
     merge(.,csb_crosswalk,by.x="GEOCODE",by.y="ST.FIPS",all.x=TRUE)
-  opioidRx2016 <- read.csv("../data/healthcare-prescribers/2016prescriptions.csv")
+  # opioidRx2016 <- read.csv("../data/healthcare-prescribers/2016prescriptions.csv")
   
   
   csb.lookup <- bonnie2015 %>% 
@@ -90,7 +90,7 @@ datasets <- function() {
   output <- list(
     "csb.ogr" = csb.ogr,
     "va.ogr" = va.ogr,
-    "opioidRx2016" = opioidRx2016,
+    # "opioidRx2016" = opioidRx2016,
     "maps.df" = maps.df,
     "fips.lookup" = fips.lookup,
     "csb.lookup" = csb.lookup
