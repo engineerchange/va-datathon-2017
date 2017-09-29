@@ -15,10 +15,16 @@ require(dplyr)
 require(pander)
 require(leaflet)
 csb.shp <- raster::shapefile("./shapefiles/CSBfinal_1.shp")
+csb.shp@data$OBJECTID <- 1:nrow(csb.shp@data)
 
 csb.key <- read.csv("./CSB_FIPS_GIS.csv")
 
 csb.only <- csb.key %>% group_by(CSBName, OBJECTID,FID) %>% summarize(count=n()) %>% arrange(OBJECTID)
+
+
+csb.ogr <- merge(csb.shp,csb.only,by="OBJECTID",all.x=TRUE)
+# saveRDS(csb.ogr,file="CSBmap.rds")
+
 
 print(str(csb.shp))
 
@@ -27,17 +33,32 @@ print(str(csb.shp))
 ## Draw a map
 
 
-
 ```{r map}
-leaflet(csb.shp) %>% addTiles() %>% addPolygons(weight = 1)
+  leaflet(csb.ogr) %>% addTiles( ) %>% addPolygons(weight = 1,label=~csb.ogr@data$CSBName)
 ```
 
 ## Get labels for map???
 
-Need to combine the CSB key with the shapefiles as a **SpatialPolygonsDataFrame** in order to give it labels .... 
+Need to combine the CSB key with the shapefiles as a **SpatialPolygonsDataFrame** in order to give it labels ? 
 
 ```{r makething}
+test <- rgeos::gSimplify(csb.shp,tol=.5,topologyPreserve=TRUE)
+test <- sp::SpatialPolygonsDataFrame(test,csb.shp@data)
+
+leaflet(test) %>% addTiles() %>% addLines(weight = 1) %>% addMarkers(label = ~CSBName)
+```
+
+
+
+
+## Read in counties file from the census (start with 20m, lower resolution file)
+
+```{r counties}
+counties.ogr <- readRDS("../Counties/counties_ogr_20m.rds")
+
+va.counties <- counties.ogr[as.numeric(as.character(counties.ogr$STATEFP)) == 51,]
 
 ```
+
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
