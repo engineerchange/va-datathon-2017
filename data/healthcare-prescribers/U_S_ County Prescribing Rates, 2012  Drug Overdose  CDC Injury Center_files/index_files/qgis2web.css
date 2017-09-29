@@ -1,0 +1,27 @@
+#map {
+	background-color: rgb(255, 255, 255);
+}
+th {
+	text-align: left; vertical-align: top;
+}
+.info {
+	background: rgba(255, 255, 255, 0.8); font: 14px/16px Arial, Helvetica, sans-serif; padding: 6px 8px; border-radius: 5px; font-size-adjust: none; font-stretch: normal; box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+.info h2 {
+	margin: 0px 0px 5px; color: rgb(119, 119, 119);
+}
+.leaflet-container {
+	background: rgb(255, 255, 255);
+}
+.leaflet-popup-content {
+	width: auto !important;
+}
+.leaflet-tooltip {
+	background: none; border: currentColor; border-image: none; box-shadow: none;
+}
+.leaflet-tooltip-left::before {
+	border: 0px currentColor; border-image: none;
+}
+.leaflet-tooltip-right::before {
+	border: 0px currentColor; border-image: none;
+}
