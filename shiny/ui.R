@@ -70,8 +70,8 @@ mapsTabBox <-
       h3("Identify counties whose needs are closest."),
       fluidRow(
         column(width = 2,box(width=12,strategyMapUI(STRATEGY.MAP))),
-        column(width =10,h2("placeholder")
-      # leafletOutput(NS(STRATEGY.MAP)("strategyMap"))
+        column(width =10,
+      leafletOutput(NS(STRATEGY.MAP)("strategyMap"))
     )
     ))
     # ,
@@ -106,16 +106,13 @@ mapsTabBox <-
 # Build the guts of the front end
 body <- dashboardBody(
   fluidRow(
-    column(width = 2,
-      # modelInputsBox,
-      textOutput("test")
-      ),
+
     column(width = 12,
            mapsTabBox
     )
   ),
   fluidRow(
-    textOutput(NS(FIPS.MAP)("clickText")),
+    # textOutput(NS(FIPS.MAP)("clickText")),
     # h2("placeholder"),
     # leafletOutput(NS(CSB.MAP)("csbMap"))
     dataTableOutput(NS(FIPS.DISPLAY)("fipsTable"))
@@ -123,7 +120,7 @@ body <- dashboardBody(
 )
 
 
-print("here")
+# print("here")
 
 shinyUI(
   # Uncomment this line to reenable login
@@ -132,7 +129,7 @@ shinyUI(
   ui = dashboardPage(
     title = "APPLICATION",
     skin="yellow",
-    header = dashboardHeader(title = "WAR",
+    header = dashboardHeader(title = "Nosce Hostem",
                              titleWidth = 450),
     sidebar = dashboardSidebar(disable=TRUE),
     body = body

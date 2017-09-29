@@ -21,17 +21,32 @@ strategyMapServer <- function(input, output, session){
     # click.id <- click$id
     #take out the 3 letters added to the start of GEOID to create the layerID
     # tmp <- gsub("[a-z][a-z][a-z]","",click.id)
-    
+    print("inside")
     feature.array <- isolate(input$selectFeatures)
     cluster.number <- isolate(input$clusterNumber)
     
     ##DO API CALL / GET and return result below
+    path <- 'http://localhost:5000'
+    if(length(feature.array)>1 & !is.numeric(cluster.number)){
+      path <- paste0(path,"?","subset=['",glue::collapse(feature.array,sep="' '"),"']")
     
+    } else   if(length(feature.array)>1){
+      path <- paste0(path,
+                     "?","subset=['",glue::collapse(feature.array,sep="' '"),"']",
+                     "&n_",cluster.number)
+
+      
+  } else {
+      path <- paste0(path,"?n_",cluster.number)
+    }
+    
+    # clustering <- simplifyDataFrame(tmp)
+    clustering  <- fromJSON(path)
+    print(clustering)
+    clustering
   })
   
-  strategy.pal <- reactive({
-    makePalette(strategyClustering()$COLUMN)
-  })
+
   
   
   strategySelection <- eventReactive(input$strategyMap_shape_click,{
@@ -47,62 +62,81 @@ strategyMapServer <- function(input, output, session){
 
     tmp
   })
+  
+  output$test <- renderTable({
+    print(strategyClustering())
+  })
 
 output$strategyMap <- renderLeaflet({
   print("inside strategyMap")
+  req(strategyClustering())
+
+  
+  map.df <- merge(DATASETS$maps.df[["2016"]],
+                  strategyClustering(),
+                  by.x="GEOID",
+                  by.y="fips")
+  
+
+    #Function to construct a risk palette with specific shared style choices
+  cluster.number <- isolate(input$clusterNumber)
+    strategy.pal <- colorFactor(palette = "Dark2",domain = 0:cluster.number) 
+
+  
+  
+   # strategy.pal <- makePalette(map.df@data$cluster) 
   # fatal.pal <- fatalPalette()
   # alldrugs.pal <- fatalPalette(maps.df[["2016"]]$`All Drugs`)
   # allopioids.pal <- fatalPalette(maps.df[["2016"]]$`All Opioids`)
   
   fips.pop <- paste0("<strong>County: </strong>", 
-                     DATASETS$maps.df[["2015"]]$NAME,
+                     DATASETS$maps.df[["2016"]]$NAME,
          "<br><strong>FIPS: </strong>",
-         DATASETS$maps.df[["2015"]]$GEOID,
+         DATASETS$maps.df[["2016"]]$GEOID,
          "<br><strong>CSB: </strong>",
-         DATASETS$maps.df[["2015"]]$CSBName)
+         DATASETS$maps.df[["2016"]]$CSBName)
 
   
-  tmp <- DATASETS$maps.df[[as.character(input$yearFIPS)]] %>%
+  tmp <- map.df %>%
     leaflet() %>%
     # addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
     addPolygons(
       layerId=~paste0("fad",GEOID),
-      group = "All Drugs",
+      group = "Clustering",
       weight = 1,
       color = "#b2aeae",
       fillOpacity = 0.8,
       popup = fips.pop,
-      fillColor = ~all.drugs.pal$pal(`All Drugs`),
+      fillColor = ~strategy.pal(`cluster`),
       highlightOptions = highlightOptions(
         color = "white",
         weight = 3,
         # bringToFront = TRUE,
-        sendToBack = TRUE)) %>%
-    # addLegend(pal = all.drugs.pal$pal,
-    #           values = maps.df[["2016"]]$`All Drugs`,
-    #           position = "bottomright",
-    #           title = "All Drugs",
-    #           layerId = "deathLegend",
-    #           labels = all.drugs.pal$label
-    # ) %>%
-    addPolygons(
-      layerId=~paste0("fao",GEOID),
-      group = "All Opioids",
-      weight = 1,
-      popup = fips.pop,
-      color = "#b2aeae",
-      fillOpacity = 0.8,
-      fillColor = ~all.opioids.pal$pal(`All Opioids`),
-      highlightOptions = highlightOptions(
-        color = "white",
-        weight = 3,
-        # bringToFront = TRUE,
-        sendToBack = TRUE)) %>%
-
-    addLayersControl(
-      baseGroups = c("All Drugs", "All Opioids","Heroin","Prescriptions","Fentanyl"),
-      options = layersControlOptions(collapsed = FALSE)
+        sendToBack = TRUE))  %>%
+    addLegend(pal = strategy.pal,
+              values = map.df$cluster,
+              position = "bottomright",
+              title = "Cluster",
+              layerId = "deathLegend"
     )
+    # addPolygons(
+    #   layerId=~paste0("fao",GEOID),
+    #   group = "All Opioids",
+    #   weight = 1,
+    #   popup = fips.pop,
+    #   color = "#b2aeae",
+    #   fillOpacity = 0.8,
+    #   fillColor = ~all.opioids.pal$pal(`All Opioids`),
+    #   highlightOptions = highlightOptions(
+    #     color = "white",
+    #     weight = 3,
+    #     # bringToFront = TRUE,
+    #     sendToBack = TRUE)) %>%
+    # 
+    # addLayersControl(
+    #   baseGroups = c("All Drugs", "All Opioids","Heroin","Prescriptions","Fentanyl"),
+    #   options = layersControlOptions(collapsed = FALSE)
+    # )
   
     
   # %>%
@@ -116,42 +150,34 @@ output$strategyMap <- renderLeaflet({
 
 
 
+# 
+# # Changes in the group selection trigger a change in the legend
+# observeEvent(input$strategyMap_groups,{
+#   
+#   if (is.null(input$strategyMap_groups))
+#     return()
+#   
+#   
+#   
+#   strategyMap <- leafletProxy("strategyMap", session=session) %>% 
+#     removeControl("fipsLegend")
+#   
+#   if (input$strategyMap_groups == 'All Drugs'){
+#     strategyMap <- strategyMap %>%
+#       addLegend(pal = all.drugs.pal$pal,
+#                 values = DATASETS$maps.df[["2016"]]$`All Drugs`,
+#                 position = "bottomright",
+#                 title = "All Drugs",
+#                 layerId = "fipsLegend",
+#                 labels = all.drugs.pal$label
+#       ) 
+#   }
 
-# Changes in the group selection trigger a change in the legend
-observeEvent(input$strategyMap_groups,{
   
-  if (is.null(input$strategyMap_groups))
-    return()
-  
-  
-  
-  strategyMap <- leafletProxy("strategyMap", session=session) %>% 
-    removeControl("fipsLegend")
-  
-  if (input$strategyMap_groups == 'All Drugs'){
-    strategyMap <- strategyMap %>%
-      addLegend(pal = all.drugs.pal$pal,
-                values = DATASETS$maps.df[["2016"]]$`All Drugs`,
-                position = "bottomright",
-                title = "All Drugs",
-                layerId = "fipsLegend",
-                labels = all.drugs.pal$label
-      ) 
-  }
-  else if (input$strategyMap_groups == 'All Opioids'){
-    strategyMap <- strategyMap %>%
-      addLegend(pal = all.opioids.pal$pal,
-                values = DATASETS$maps.df[["2016"]]$`All Opioids`,
-                position = "bottomright",
-                title = "All Opioids",
-                layerId = "fipsLegend",
-                labels = all.opioids.pal$label
-      ) 
-  }
 
 
   
-})
+# })
 
 # Output for printing the stripped click$id (i.e. the GEOCODE of the selected county) (Testing)
 output $ clickText <- renderPrint({

@@ -123,7 +123,7 @@ output$fipsMap <- renderLeaflet({
         # bringToFront = TRUE,
         sendToBack = TRUE)) %>%
     addLayersControl(
-      baseGroups = c("All Drugs", "All Opioids","Heroin","Prescriptions","Fentanyl"),
+      baseGroups = c("Prescriptions","All Drugs", "All Opioids","Heroin","Fentanyl"),
       options = layersControlOptions(collapsed = FALSE)
     )
   

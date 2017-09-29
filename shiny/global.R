@@ -8,6 +8,7 @@ require(viridis)
 require(leaflet)
 require(shinycssloaders)
 require(jsonlite)
+require(RColorBrewer)
 
 
 
