@@ -36,18 +36,15 @@ mapsTabBox <-
     id = "mapsTabSet",
     # style = 'padding: 0px;',
     tabPanel(
-      title = "Population Maps",
+      title = "CSB",
       value = "popMapTab",
       # style = 'padding: 0px;',
-      p("County population estimates obtained from 2014 American Community Survey from U.S. Census."),
       leafletOutput(NS(CSB.MAP)("csbMap"))
     ),
     tabPanel(
-      title = "Risk Maps",
-      value = "riskMapTab",
+      title = "FIPS",
+      value = "fipsMapTab",
       # style = 'padding: 0px;',
-      p("This interactive map displays the predicted risk of three health-related proxy readiness outcomes.
-        Select a specific county on the map to view its risk"),
       leafletOutput(NS(FIPS.MAP)("fipsMap"))
     )
     # ,
@@ -82,11 +79,11 @@ mapsTabBox <-
 # Build the guts of the front end
 body <- dashboardBody(
   fluidRow(
-    column(width = 3,
+    column(width = 2,
       countySummaryBox,
       textOutput("test")
       ),
-    column(width = 9,
+    column(width = 10,
            mapsTabBox
     )
   ),

@@ -35,26 +35,40 @@ datasets <- function() {
     return(merge(va.ogr,x,by="GEOID"))
   })
   
-
+csb_crosswalk <- read.csv("../data/CSB/CSB_FIPS_GIS.csv",stringsAsFactors = FALSE)
 
   
-  bonnie2015 <- read.csv("../data/2015master.csv",stringsAsFactors = FALSE)
+  bonnie2015 <- read.csv("../data/2015master.csv",stringsAsFactors = FALSE) %>%
+    mutate(GEOCODE = as.character(FIPS.Code)) %>% 
+    merge(.,csb_crosswalk,by.x="GEOCODE",by.y="ST.FIPS",all.x=TRUE)
   opioidRx2016 <- read.csv("../data/healthcare-prescribers/2016prescriptions.csv")
   
   
-  fips.lookup <- bonnie2015 %>% 
-    mutate(GEOCODE = as.character(FIPS.Code)) %>%
+  csb.lookup <- bonnie2015 %>% 
+    # mutate(GEOCODE = as.character(FIPS.Code)) %>%
     select(GEOCODE,
            County,
+           City.County,
+           OBJECTID,
+           CSBName,
            Type,
            Rate_x,
            Rate_y) %>%
-    group_by(GEOCODE,
-             County,
-             Type,
-             Rate_x,
-             Rate_y) %>%
-    summarize(count=n()) %>% ungroup() %>%
+    rename(
+      `Incidence Rate` = Rate_x,
+      `Prescription Opioid Rate` = Rate_y) %>%
+    spread(Type,`Incidence Rate`) %>%
+    data.table::data.table(.,key="OBJECTID")
+  
+  fips.lookup <- bonnie2015 %>% 
+    # mutate(GEOCODE = as.character(FIPS.Code)) %>%
+    select(GEOCODE,
+           County,
+           City.County,
+           CSB,
+           Type,
+           Rate_x,
+           Rate_y) %>%
     rename(
       `Incidence Rate` = Rate_x,
       `Prescription Opioid Rate` = Rate_y) %>% 
