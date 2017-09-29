@@ -85,15 +85,11 @@ fipsDisplayServer <- function(input, output, session, fipsSelection, which.tab=N
   
   # Reactive to capture the lookup data for the currently selected county
   fipsInfo <- reactive({
-    
-    print(fipsSelection())
-    DATASETS$fips.lookup[as.character(fipsSelection())]
+
+    DATASETS$fips.lookup[as.character(fipsSelection())] 
   })
   
-  titleInfo <- reactive({
-    DATASETS$county.lookup2[countySelection()]
-    
-  })
+
   
   # Reactive to capture the title data for the currently selected county
   output $ countyTitle <- renderText({

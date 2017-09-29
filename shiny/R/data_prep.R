@@ -42,19 +42,23 @@ datasets <- function() {
   opioidRx2016 <- read.csv("../data/healthcare-prescribers/2016prescriptions.csv")
   
   
-  fips.lookup <- bonnie2015 %>% ungroup() %>%
+  fips.lookup <- bonnie2015 %>% 
     mutate(GEOCODE = as.character(FIPS.Code)) %>%
     select(GEOCODE,
            County,
-           Below.poverty.level..Estimate..Population.for.whom.poverty.status.is.determined,
-           Percent..Estimate..No.people.in.the.household.60.years.and.over) %>%
-    group_by(
-      GEOCODE,
-      County,
-      Below.poverty.level..Estimate..Population.for.whom.poverty.status.is.determined,
-      Percent..Estimate..No.people.in.the.household.60.years.and.over) %>%
-    
-    summarize(count=n()) %>%
+           Type,
+           Rate_x,
+           Rate_y) %>%
+    group_by(GEOCODE,
+             County,
+             Type,
+             Rate_x,
+             Rate_y) %>%
+    summarize(count=n()) %>% ungroup() %>%
+    rename(
+      `Incidence Rate` = Rate_x,
+      `Prescription Opioid Rate` = Rate_y) %>% 
+    spread(Type,`Incidence Rate`) %>%
     data.table::data.table(.,key="GEOCODE")
   
   

@@ -31,7 +31,7 @@ fipsMapServer <- function(input, output, session){
   })
 
 output$fipsMap <- renderLeaflet({
-  print("inside cbsMap")
+  print("inside fipsMap")
   # fatal.pal <- fatalPalette()
   # alldrugs.pal <- fatalPalette(maps.df[["2016"]]$`All Drugs`)
   # allopioids.pal <- fatalPalette(maps.df[["2016"]]$`All Opioids`)
