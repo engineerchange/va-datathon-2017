@@ -65,7 +65,7 @@ csb_crosswalk <- read.csv("../data/CSB/CSB_FIPS_GIS.csv",stringsAsFactors = FALS
     select(GEOCODE,
            County,
            City.County,
-           CSB,
+           CSBName,
            Type,
            Rate_x,
            Rate_y) %>%
@@ -82,7 +82,8 @@ csb_crosswalk <- read.csv("../data/CSB/CSB_FIPS_GIS.csv",stringsAsFactors = FALS
     "va.ogr" = va.ogr,
     "opioidRx2016" = opioidRx2016,
     "maps.df" = maps.df,
-    "fips.lookup" = fips.lookup
+    "fips.lookup" = fips.lookup,
+    "csb.lookup" = csb.lookup
   )
   
   

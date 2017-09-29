@@ -9,7 +9,7 @@ shinyServer(function(input,output,session){
   })
   
   
-  callModule(
+  csb.info <- callModule(
     csbMapServer,
     CSB.MAP
   )

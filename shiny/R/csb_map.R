@@ -20,13 +20,33 @@ print("loading csb_map")
 
 csbMapServer <- function(input, output, session){
   ns <- session$ns
+  
+  csbSelection <- eventReactive(input$csbMap_shape_click,{
+    req(input$csbMap_shape_click)
+    click <- input$csbMap_shape_click
+    
+    if (is.null(click))
+      return()
+    
+    click.id <- click$id
+    #take out the 3 letters added to the start of GEOID to create the layerID
+    tmp <- gsub("[a-z][a-z][a-z]","",click.id)
+    
+    tmp
+  })
+  
+  
   output$csbMap <- renderLeaflet({
     print("inside cbsMap")
     
     tmp <- DATASETS$csb.ogr %>%
       leaflet() %>%
       addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
-      addPolygons(weight = 1)
+      addPolygons(
+        weight = 1,
+        layerId=~paste0("crx",OBJECTID),
+        fillColor = ~CSBName
+        )
     # %>%
       # addLegend(pal = colorFactor(~CSBName,DATASETS$csb.ogr@data$CSBName),value = ~CSBName)
     
@@ -34,7 +54,19 @@ csbMapServer <- function(input, output, session){
     
   })
   
-
+  
+  output$csbTable <- renderDataTable({
+    DATASETS$csb.lookup[as.character(csbSelection())]
+    
+  })
+  
+  
+  list(
+    
+    
+    "csbSelection" = csbSelection
+  )
+  
   
   
 }
