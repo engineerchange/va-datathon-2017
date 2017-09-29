@@ -4,11 +4,11 @@
 
 fipsMapServer <- function(input, output, session){
   ns <- session$ns
-  all.drugs.pal <- makePalette(maps.df[["2016"]]$`All Drugs`)
-  all.opioids.pal <- makePalette(maps.df[["2016"]]$`All Opioids`)
-  heroin.pal <- makePalette(maps.df[["2016"]]$`Heroin`)
-  prescription.pal <- makePalette(maps.df[["2016"]]$`Prescription`)
-  fentanyl.pal <- makePalette(maps.df[["2016"]]$Fentanyl)
+  all.drugs.pal <- makePalette(DATASET$maps.df[["2016"]]$`All Drugs`)
+  all.opioids.pal <- makePalette(DATASET$maps.df[["2016"]]$`All Opioids`)
+  heroin.pal <- makePalette(DATASET$maps.df[["2016"]]$`Heroin`)
+  prescription.pal <- makePalette(DATASET$maps.df[["2016"]]$`Prescription`)
+  fentanyl.pal <- makePalette(DATASET$maps.df[["2016"]]$Fentanyl)
   
   
   # fatalPalette <- reactive({
@@ -55,7 +55,7 @@ output$fipsMap <- renderLeaflet({
       group = "All Drugs",
       weight = 1,
       color = "#b2aeae",
-      fillOpacity = 0.6,
+      fillOpacity = 0.8,
       popup = fips.pop,
       fillColor = ~all.drugs.pal$pal(`All Drugs`),
       highlightOptions = highlightOptions(
@@ -76,7 +76,7 @@ output$fipsMap <- renderLeaflet({
       weight = 1,
       popup = fips.pop,
       color = "#b2aeae",
-      fillOpacity = 0.6,
+      fillOpacity = 0.8,
       fillColor = ~all.opioids.pal$pal(`All Opioids`),
       highlightOptions = highlightOptions(
         color = "white",
@@ -89,7 +89,7 @@ output$fipsMap <- renderLeaflet({
       weight = 1,
       popup = fips.pop,
       color = "#b2aeae",
-      fillOpacity = 0.6,
+      fillOpacity = 0.8,
       fillColor = ~heroin.pal$pal(`Heroin`),
       highlightOptions = highlightOptions(
         color = "white",
@@ -102,7 +102,7 @@ output$fipsMap <- renderLeaflet({
       weight = 1,
       popup = fips.pop,
       color = "#b2aeae",
-      fillOpacity = 0.6,
+      fillOpacity = 0.8,
       fillColor = ~prescription.pal$pal(`Prescription`),
       highlightOptions = highlightOptions(
         color = "white",
@@ -115,7 +115,7 @@ output$fipsMap <- renderLeaflet({
       popup = fips.pop,
       weight = 1,
       color = "#b2aeae",
-      fillOpacity = 0.6,
+      fillOpacity = 0.8,
       fillColor = ~fentanyl.pal$pal(`Fentanyl`),
       highlightOptions = highlightOptions(
         color = "white",
@@ -154,7 +154,7 @@ observeEvent(input$fipsMap_groups,{
   if (input$fipsMap_groups == 'All Drugs'){
     fipsMap <- fipsMap %>%
       addLegend(pal = all.drugs.pal$pal,
-                values = maps.df[["2016"]]$`All Drugs`,
+                values = DATASETS$maps.df[["2016"]]$`All Drugs`,
                 position = "bottomright",
                 title = "All Drugs",
                 layerId = "fipsLegend",
@@ -164,7 +164,7 @@ observeEvent(input$fipsMap_groups,{
   else if (input$fipsMap_groups == 'All Opioids'){
     fipsMap <- fipsMap %>%
       addLegend(pal = all.opioids.pal$pal,
-                values = maps.df[["2016"]]$`All Opioids`,
+                values = DATASETS$maps.df[["2016"]]$`All Opioids`,
                 position = "bottomright",
                 title = "All Opioids",
                 layerId = "fipsLegend",
@@ -174,7 +174,7 @@ observeEvent(input$fipsMap_groups,{
   else if (input$fipsMap_groups == 'Heroin'){
     fipsMap <- fipsMap %>%
       addLegend(pal = heroin.pal$pal,
-                values = maps.df[["2016"]]$`Heroin`,
+                values = DATASETS$maps.df[["2016"]]$`Heroin`,
                 position = "bottomright",
                 title = "Heroin",
                 layerId = "fipsLegend",
@@ -183,7 +183,7 @@ observeEvent(input$fipsMap_groups,{
   else if (input$fipsMap_groups == 'Prescriptions'){
     fipsMap <- fipsMap %>%
       addLegend(pal = prescription.pal$pal,
-                values = maps.df[["2016"]]$`Prescription`,
+                values = DATASETS$maps.df[["2016"]]$`Prescription`,
                 position = "bottomright",
                 title = "Prescriptions",
                 layerId = "fipsLegend",
@@ -192,7 +192,7 @@ observeEvent(input$fipsMap_groups,{
   else if (input$fipsMap_groups == 'Fentanyl'){
     fipsMap <- fipsMap %>%
       addLegend(pal = fentanyl.pal$pal,
-                values = maps.df[["2016"]]$Fentanyl,
+                values = DATASETS$maps.df[["2016"]]$Fentanyl,
                 position = "bottomright",
                 title = "Fentanyl",
                 layerId = "fipsLegend",
