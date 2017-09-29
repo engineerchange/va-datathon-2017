@@ -21,6 +21,9 @@ print("loading csb_map")
 csbMapServer <- function(input, output, session){
   ns <- session$ns
   
+  statefund.pal <- makePalette(as.numeric(DATASETS$csb.ogr$State.Funds))
+  
+  
   csbSelection <- eventReactive(input$csbMap_shape_click,{
     req(input$csbMap_shape_click)
     click <- input$csbMap_shape_click
@@ -53,7 +56,7 @@ csbMapServer <- function(input, output, session){
         color = "#b2aeae",
         weight = 1,
         layerId=~paste0("crx",OBJECTID),
-        # fillColor = ~CSBName,
+        fillColor = ~statefund.pal$pal(`State.Funds`),
         popup = csb.pop,
         labelOptions = labelOptions(
           style = list("font-weight" = "normal", padding = "3px 8px"),
@@ -66,7 +69,14 @@ csbMapServer <- function(input, output, session){
         color = "white",
         weight = 3,
         # bringToFront = TRUE,
-        sendToBack = TRUE) )
+        sendToBack = TRUE) ) %>%
+      addLegend(pal = statefund.pal$pal,
+                values = DATASETS$csb.ogr$State.Funds,
+                position = "bottomright",
+                title = "State Funds",
+                layerId = "csbLegend",
+                labels = statefund.pal$label
+      ) 
     # %>%
       # addLegend(pal = colorFactor(~CSBName,DATASETS$csb.ogr@data$CSBName),value = ~CSBName)
     

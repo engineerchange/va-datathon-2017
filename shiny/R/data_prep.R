@@ -5,7 +5,13 @@ datasets <- function() {
   csb.ogr <- readRDS("../data/CSB/CSBmap.rds")
   va.ogr <- readRDS("../data/counties/va_ogr_500k.rds")
   csb_crosswalk <- read.csv("../data/CSB/CSB_FIPS_GIS.csv",stringsAsFactors = FALSE)
+  csb.finances <- read.csv("../data/CSB/csb_financial_data.csv",stringsAsFactors = FALSE) %>%
+    filter(FY == 2014) %>%
+    select(-CSB) %>%
+  mutate(State.Funds = as.numeric(gsub(",","",State.Funds)))
+  csb_crosswalk <- merge(csb_crosswalk,csb.finances,by="OBJECTID",all.x=T)
   
+  csb.ogr <- merge(csb.ogr,csb.finances,by="OBJECTID",all.x=T)
   
   opioid.fatalities <- read.csv("../data/healthcare-deathdata/va_opioid_fatalities.csv",header=T,stringsAsFactors = FALSE) %>%
     select(-X,-DeathByYear) %>%
