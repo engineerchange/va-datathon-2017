@@ -21,7 +21,7 @@ strategyMapServer <- function(input, output, session){
     # click.id <- click$id
     #take out the 3 letters added to the start of GEOID to create the layerID
     # tmp <- gsub("[a-z][a-z][a-z]","",click.id)
-    print("inside")
+    # print("inside")
     feature.array <- isolate(input$selectFeatures)
     cluster.number <- isolate(input$clusterNumber)
     
@@ -33,16 +33,17 @@ strategyMapServer <- function(input, output, session){
     } else   if(length(feature.array)>1){
       path <- paste0(path,
                      "?","subset=['",glue::collapse(feature.array,sep="' '"),"']",
-                     "&n_",cluster.number)
+                     "&n_clusters=",cluster.number)
 
       
   } else {
-      path <- paste0(path,"?n_",cluster.number)
+      path <- paste0(path,"?n_clusters=",cluster.number)
     }
     
     # clustering <- simplifyDataFrame(tmp)
+    print(path)
     clustering  <- fromJSON(path)
-    print(clustering)
+    # print(clustering)
     clustering
   })
   
@@ -66,20 +67,33 @@ strategyMapServer <- function(input, output, session){
   output$test <- renderTable({
     print(strategyClustering())
   })
+  
+  
+  mapDf <- reactive({
+    req(strategyClustering())
+    
+    
+    map.df <- merge(DATASETS$maps.df[["2016"]],
+                    strategyClustering(),
+                    by.x="GEOID",
+                    by.y="fips")
+    map.df
+  })
 
 output$strategyMap <- renderLeaflet({
+  input$queryAPI
   print("inside strategyMap")
-  req(strategyClustering())
 
-  
-  map.df <- merge(DATASETS$maps.df[["2016"]],
-                  strategyClustering(),
-                  by.x="GEOID",
-                  by.y="fips")
+# 
+#   
+#   map.df <- merge(DATASETS$maps.df[["2016"]],
+#                   strategyClustering(),
+#                   by.x="GEOID",
+#                   by.y="fips")
   
 
     #Function to construct a risk palette with specific shared style choices
-  cluster.number <- isolate(input$clusterNumber)
+  cluster.number <- input$clusterNumber
     strategy.pal <- colorFactor(palette = "Dark2",domain = 0:cluster.number) 
 
   
@@ -90,19 +104,19 @@ output$strategyMap <- renderLeaflet({
   # allopioids.pal <- fatalPalette(maps.df[["2016"]]$`All Opioids`)
   
   fips.pop <- paste0("<strong>County: </strong>", 
-                     DATASETS$maps.df[["2016"]]$NAME,
+                     mapDf()$NAME,
          "<br><strong>FIPS: </strong>",
-         DATASETS$maps.df[["2016"]]$GEOID,
+         mapDf()$GEOID,
          "<br><strong>CSB: </strong>",
-         DATASETS$maps.df[["2016"]]$CSBName)
+         mapDf()$CSBName)
 
   
-  tmp <- map.df %>%
-    leaflet() %>%
+  tmp <- mapDf() %>%
+    leaflet() %>% 
     # addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
     addPolygons(
-      layerId=~paste0("fad",GEOID),
-      group = "Clustering",
+      # layerId=~paste0("fad",GEOID),
+      # group = "Clustering",
       weight = 1,
       color = "#b2aeae",
       fillOpacity = 0.8,
@@ -114,7 +128,7 @@ output$strategyMap <- renderLeaflet({
         # bringToFront = TRUE,
         sendToBack = TRUE))  %>%
     addLegend(pal = strategy.pal,
-              values = map.df$cluster,
+              values = mapDf()$cluster,
               position = "bottomright",
               title = "Cluster",
               layerId = "deathLegend"
@@ -145,9 +159,42 @@ output$strategyMap <- renderLeaflet({
   tmp
   
 })
-
-
-
+# 
+# observe({
+#   mapDf()
+#   cluster.number <- isolate(input$clusterNumber)
+#   strategy.pal <- colorFactor(palette = "Dark2",domain = 0:cluster.number) 
+#    leafletProxy("stategyMap") %>% clearShapes() %>%
+#      addPolygons(
+#        layerId=~paste0("fxx",GEOID),
+#        group = "Clustering",
+#        weight = 1,
+#        color = "#b2aeae",
+#        fillOpacity = 0.8,
+#        popup = fips.pop,
+#        fillColor = ~strategy.pal(`cluster`),
+#        highlightOptions = highlightOptions(
+#          color = "white",
+#          weight = 3,
+#          # bringToFront = TRUE,
+#          sendToBack = TRUE))  %>%
+#      addLegend(pal = strategy.pal,
+#                values = mapDf()$cluster,
+#                position = "bottomright",
+#                title = "Cluster",
+#                layerId = "deathLegend"
+#      )
+#  
+# 
+# 
+# 
+# # strategy.pal <- makePalette(map.df@data$cluster) 
+# # fatal.pal <- fatalPalette()
+# # alldrugs.pal <- fatalPalette(maps.df[["2016"]]$`All Drugs`)
+# # allopioids.pal <- fatalPalette(maps.df[["2016"]]$`All Opioids`)
+# 
+# })
+# 
 
 
 # 
