@@ -41,12 +41,18 @@ csbMapServer <- function(input, output, session){
     
     tmp <- DATASETS$csb.ogr %>%
       leaflet() %>%
-      addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
+      # addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
       addPolygons(
+        color = "#b2aeae",
         weight = 1,
         layerId=~paste0("crx",OBJECTID),
-        fillColor = ~CSBName
-        )
+        fillColor = ~CSBName,
+        
+      highlightOptions = highlightOptions(
+        color = "white",
+        weight = 3,
+        # bringToFront = TRUE,
+        sendToBack = TRUE) )
     # %>%
       # addLegend(pal = colorFactor(~CSBName,DATASETS$csb.ogr@data$CSBName),value = ~CSBName)
     

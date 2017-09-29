@@ -8,6 +8,8 @@ fipsMapServer <- function(input, output, session){
   all.opioids.pal <- makePalette(maps.df[["2016"]]$`All Opioids`)
   heroin.pal <- makePalette(maps.df[["2016"]]$`Heroin`)
   prescription.pal <- makePalette(maps.df[["2016"]]$`Prescription`)
+  fentanyl.pal <- makePalette(maps.df[["2016"]]$Fentanyl)
+  
   
   # fatalPalette <- reactive({
   #   req(input$fipsMap_groups)
@@ -95,8 +97,20 @@ output$fipsMap <- renderLeaflet({
         weight = 3,
         # bringToFront = TRUE,
         sendToBack = TRUE)) %>%
+    addPolygons(
+      layerId=~paste0("fen",GEOID),
+      group = "Fentanyl",
+      weight = 1,
+      color = "#b2aeae",
+      fillOpacity = 0.6,
+      fillColor = ~fentanyl.pal$pal(`Fentanyl`),
+      highlightOptions = highlightOptions(
+        color = "white",
+        weight = 3,
+        # bringToFront = TRUE,
+        sendToBack = TRUE)) %>%
     addLayersControl(
-      baseGroups = c("All Drugs", "All Opioids","Heroin","Prescriptions"),
+      baseGroups = c("All Drugs", "All Opioids","Heroin","Prescriptions","Fentanyl"),
       options = layersControlOptions(collapsed = FALSE)
     )
   
@@ -161,6 +175,15 @@ observeEvent(input$fipsMap_groups,{
                 title = "Prescriptions",
                 layerId = "fipsLegend",
                 labels = prescription.pal$label
+      )  }
+  else if (input$fipsMap_groups == 'Fentanyl'){
+    fipsMap <- fipsMap %>%
+      addLegend(pal = fentanyl.pal$pal,
+                values = maps.df[["2016"]]$Fentanyl,
+                position = "bottomright",
+                title = "Fentanyl",
+                layerId = "fipsLegend",
+                labels = fentanyl.pal$label
       ) 
     
   }
