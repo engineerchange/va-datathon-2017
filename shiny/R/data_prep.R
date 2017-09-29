@@ -5,11 +5,23 @@ datasets <- function() {
   csb.ogr <- readRDS("../data/CSB/CSBmap.rds")
   va.ogr <- readRDS("../data/counties/va_ogr_500k.rds")
   
-  opioid.fatalities <- read.csv("../data/healthcare-deathdata/va_opioid_fatalities.csv",header=T) %>%
+  opioid.fatalities <- read.csv("../data/healthcare-deathdata/va_opioid_fatalities.csv",header=T,stringsAsFactors = FALSE) %>%
+    select(-X,-DeathByYear) %>%
     filter(!is.na(Rate)) %>%
-    filter( !GEOID %in% c(51620,51760,51770)) %>%
-    filter(Year == 2016,Drug =="All Drugs")
-  maps.df <- merge(va.ogr,opioid.fatalities,by="GEOID")
+    filter( !GEOID %in% c(51019,51620,51760,51770)) %>%
+    # filter(Year > 2012) %>%
+    spread(Drug,Rate) %>%
+    mutate(Year = as.factor(Year))
+  
+  ## split into tables by year
+  fatalities.list <- split(opioid.fatalities,list(opioid.fatalities$Year))
+  
+  maps.df <- lapply(fatalities.list,function(x){
+    print("inside")
+    thing <- x$GEOID[duplicated(x$GEOID)]
+
+    return(merge(va.ogr,x,by="GEOID"))
+  })
   # county.lookup <- va.counties@data %>% 
   #   select(GEOID,STATEFP, NAME,ST,county,Reserve.Pop,Reserve.Above.Avg,Active.Pop,Active.Above.Avg) %>%
   #   data.table::data.table(.,key="GEOID")

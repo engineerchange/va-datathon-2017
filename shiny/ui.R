@@ -20,7 +20,8 @@ countyMetricsBox <- box(
 countySummaryBox <- box(status = "warning",
   width = 12,
   title = "County Metrics",
-  h2("Placeholder")
+  h2("Placeholder"),
+  fipsMapUI(FIPS.MAP)
   # style = 'padding: 0px;',
 
   # h2(textOutput(NS(COUNTY.METRICS)("countyTitle")))
