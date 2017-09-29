@@ -16,12 +16,13 @@ require(jsonlite)
 source("./R/data_prep.R")
 source("./R/csb_map.R")
 source("./R/fips_map.R")
+source("./R/fips_display.R")
 
 
 ## Namespaces
 CSB.MAP <- "csb.map"
 FIPS.MAP <- "fips.map"
-
+FIPS.DISPLAY <- "fips.display"
 
 
 ## Functions
@@ -29,7 +30,7 @@ FIPS.MAP <- "fips.map"
 
 makePalette <- function(domain,...){
   #Function to construct a risk palette with specific shared style choices
-  risk.label <- round(unname(quantile(domain,na.rm = T,probs=c(0,.25,.5,.75,1))),digits=1)
+  risk.label <- round(unname(quantile(domain,na.rm = T,probs=c(0,.5,.75,1))),digits=1)
   
   risk.pal <- colorBin(
     palette = "Greens", 

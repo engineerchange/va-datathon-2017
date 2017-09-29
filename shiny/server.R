@@ -15,15 +15,22 @@ shinyServer(function(input,output,session){
   )
   
   
-  callModule(
+  fips.info <- callModule(
     fipsMapServer,
     FIPS.MAP
   )
   
+  fipsInfo <- reactive({
+    
+    fips.info$fipsSelection()
+  })
   
   
-  
-  
+  callModule(
+    fipsDisplayServer,
+    FIPS.DISPLAY,
+    fipsSelection=reactive(fipsInfo())
+  )
   
   
   
