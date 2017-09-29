@@ -45,6 +45,7 @@ mapsTabBox <-
       title = "FIPS",
       value = "fipsMapTab",
       # style = 'padding: 0px;',
+      h2("Opioid Fatality Incidence Rates"),
       leafletOutput(NS(FIPS.MAP)("fipsMap"))
     )
     # ,
@@ -104,7 +105,7 @@ shinyUI(
   
   ui = dashboardPage(
     title = "APPLICATION",
-    skin="green",
+    skin="yellow",
     header = dashboardHeader(title = "WAR",
                              titleWidth = 450),
     sidebar = dashboardSidebar(disable=TRUE),

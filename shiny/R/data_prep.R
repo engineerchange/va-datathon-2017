@@ -8,7 +8,7 @@ datasets <- function() {
   csb.finances <- read.csv("../data/CSB/csb_financial_data.csv",stringsAsFactors = FALSE) %>%
     filter(FY == 2014) %>%
     select(-CSB) %>%
-  mutate(State.Funds = as.numeric(gsub(",","",State.Funds)))
+  mutate_at(vars(State.Funds,Local.Funds,Federal.Funds,Total.Net.Assets),funs(as.numeric(gsub(",","",.))))
   csb_crosswalk <- merge(csb_crosswalk,csb.finances,by="OBJECTID",all.x=T)
   
   csb.ogr <- merge(csb.ogr,csb.finances,by="OBJECTID",all.x=T)

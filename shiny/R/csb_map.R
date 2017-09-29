@@ -22,6 +22,12 @@ csbMapServer <- function(input, output, session){
   ns <- session$ns
   
   statefund.pal <- makePalette(as.numeric(DATASETS$csb.ogr$State.Funds))
+  localfund.pal <- makePalette(as.numeric(DATASETS$csb.ogr$Local.Funds))
+  federalfund.pal <- makePalette(as.numeric(DATASETS$csb.ogr$Federal.Funds))
+  netassets.pal <- makePalette(as.numeric(DATASETS$csb.ogr$Total.Net.Assets))
+  
+  
+  
   
   
   csbSelection <- eventReactive(input$csbMap_shape_click,{
@@ -55,7 +61,7 @@ csbMapServer <- function(input, output, session){
       addPolygons(
         color = "#b2aeae",
         weight = 1,
-        layerId=~paste0("crx",OBJECTID),
+        layerId=~paste0("clf",OBJECTID),
         fillColor = ~statefund.pal$pal(`State.Funds`),
         popup = csb.pop,
         labelOptions = labelOptions(
@@ -63,8 +69,6 @@ csbMapServer <- function(input, output, session){
           textsize = "15px",
           direction = "auto"),
         label = DATASETS$csb.ogr$CSBName,
-        
-        
       highlightOptions = highlightOptions(
         color = "white",
         weight = 3,
@@ -76,11 +80,96 @@ csbMapServer <- function(input, output, session){
                 title = "State Funds",
                 layerId = "csbLegend",
                 labels = statefund.pal$label
-      ) 
+      ) %>%
+      addPolygons(
+        color = "#b2aeae",
+        weight = 1,
+        layerId=~paste0("clf",OBJECTID),
+        fillColor = ~localfund.pal$pal(`Local.Funds`),
+        popup = csb.pop,
+        labelOptions = labelOptions(
+          style = list("font-weight" = "normal", padding = "3px 8px"),
+          textsize = "15px",
+          direction = "auto"),
+        label = DATASETS$csb.ogr$CSBName,
+        highlightOptions = highlightOptions(
+          color = "white",
+          weight = 3,
+          # bringToFront = TRUE,
+          sendToBack = TRUE) ) %>%
+
+      addPolygons(
+        color = "#b2aeae",
+        weight = 1,
+        layerId=~paste0("cna",OBJECTID),
+        fillColor = ~netassets.pal$pal(`Total.Net.Assets`),
+        popup = csb.pop,
+        labelOptions = labelOptions(
+          style = list("font-weight" = "normal", padding = "3px 8px"),
+          textsize = "15px",
+          direction = "auto"),
+        label = DATASETS$csb.ogr$CSBName,
+        highlightOptions = highlightOptions(
+          color = "white",
+          weight = 3,
+          # bringToFront = TRUE,
+          sendToBack = TRUE) ) %>%
+      addLayersControl(
+        baseGroups = c("State Funds", "Local Funds","Total Net Assets"),
+        options = layersControlOptions(collapsed = FALSE)
+      )
     # %>%
       # addLegend(pal = colorFactor(~CSBName,DATASETS$csb.ogr@data$CSBName),value = ~CSBName)
     
     tmp
+    
+  })
+  
+  
+  
+  
+  
+  # Changes in the group selection trigger a change in the legend
+  observeEvent(input$csbMap_groups,{
+    
+    if (is.null(input$csbMap_groups))
+      return()
+    
+    
+    
+    csbMap <- leafletProxy("csbMap", session=session) %>% 
+      removeControl("csbLegend")
+    
+    if (input$csbMap_groups == 'State Funds'){
+      csbMap <- csbMap %>%
+        addLegend(pal = statefund.pal$pal,
+                  values = DATASETS$csb.ogr$State.Funds,
+                  position = "bottomright",
+                  title = "State Funds",
+                  layerId = "csbLegend",
+                  labels = statefund.pal$label
+        ) 
+    }
+    else if (input$csbMap_groups == 'Local Funds'){
+      csbMap <- csbMap %>%
+        addLegend(pal = localfund.pal$pal,
+                  values = DATASETS$csb.ogr$Local.Funds,
+                  position = "bottomright",
+                  title = "Local Funds",
+                  layerId = "csbLegend",
+                  labels = localfund.pal$label
+        ) 
+    } 
+    else if (input$csbMap_groups == 'Total Net Assets'){
+      csbMap <- csbMap %>%
+        addLegend(pal = netassets.pal$pal,
+                  values = DATASETS$csb.ogr$Total.Net.Assets,
+                  position = "bottomright",
+                  title = "Total Net Assets",
+                  layerId = "csbLegend",
+                  labels = netassets.pal$label
+        ) 
+    }
     
   })
   
