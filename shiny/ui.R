@@ -7,7 +7,7 @@
 # sidebar <- dashboardSidebar(disable = T)
 
 countyMetricsBox <- box(
-  title = "Stuff",
+  title = "Metrics",
   width = 12,
   p("Weighted composite risk scores are derived from 18 health factors
     impacting a county's health risk. ",tags$b("Intervention impact"), " refers to the
@@ -19,8 +19,8 @@ countyMetricsBox <- box(
 
 countySummaryBox <- box(status = "warning",
   width = 12,
-  title = "County Metrics",
-  h2("Placeholder"),
+  title = "Model Adjustments",
+  # h2("Placeholder"),
   fipsMapUI(FIPS.MAP)
   # style = 'padding: 0px;',
 
@@ -105,7 +105,7 @@ shinyUI(
   ui = dashboardPage(
     title = "APPLICATION",
     skin="green",
-    header = dashboardHeader(title = "WHAT",
+    header = dashboardHeader(title = "WAR",
                              titleWidth = 450),
     sidebar = dashboardSidebar(disable=TRUE),
     body = body

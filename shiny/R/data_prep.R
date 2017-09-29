@@ -11,7 +11,7 @@ datasets <- function() {
     select(-X,-DeathByYear) %>%
     filter(!is.na(Rate)) %>%
     filter( !GEOID %in% c(51019,51620,51760,51770)) %>%
-    # filter(Year > 2012) %>%
+    filter(Year > 2011) %>%
     spread(Drug,Rate) %>%
     mutate(Year = as.factor(Year))
   
