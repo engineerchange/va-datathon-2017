@@ -39,6 +39,13 @@ csbMapServer <- function(input, output, session){
   output$csbMap <- renderLeaflet({
     print("inside cbsMap")
     
+    csb.pop <- paste0("<strong>CSB: </strong>",
+                       DATASETS$csb.ogr$CSBName,
+                      "<br><strong>PPR: </strong>",
+                      DATASETS$csb.ogr$PPR,
+                      "<br><strong>HPR: </strong>",
+                      DATASETS$csb.ogr$HPR)
+    
     tmp <- DATASETS$csb.ogr %>%
       leaflet() %>%
       # addTiles(options = providerTileOptions(noWrap = TRUE)) %>%
@@ -46,7 +53,14 @@ csbMapServer <- function(input, output, session){
         color = "#b2aeae",
         weight = 1,
         layerId=~paste0("crx",OBJECTID),
-        fillColor = ~CSBName,
+        # fillColor = ~CSBName,
+        popup = csb.pop,
+        labelOptions = labelOptions(
+          style = list("font-weight" = "normal", padding = "3px 8px"),
+          textsize = "15px",
+          direction = "auto"),
+        label = DATASETS$csb.ogr$CSBName,
+        
         
       highlightOptions = highlightOptions(
         color = "white",

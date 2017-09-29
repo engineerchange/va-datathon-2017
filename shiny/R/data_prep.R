@@ -4,6 +4,8 @@ datasets <- function() {
   print("dataprep")
   csb.ogr <- readRDS("../data/CSB/CSBmap.rds")
   va.ogr <- readRDS("../data/counties/va_ogr_500k.rds")
+  csb_crosswalk <- read.csv("../data/CSB/CSB_FIPS_GIS.csv",stringsAsFactors = FALSE)
+  
   
   opioid.fatalities <- read.csv("../data/healthcare-deathdata/va_opioid_fatalities.csv",header=T,stringsAsFactors = FALSE) %>%
     select(-X,-DeathByYear) %>%
@@ -31,11 +33,13 @@ datasets <- function() {
   maps.df <- lapply(fatalities.list,function(x){
     print("inside")
     thing <- x$GEOID[duplicated(x$GEOID)]
+    print(thing)
+    tmp <- merge(va.ogr,x,by="GEOID")
+    tmp <- merge(tmp,csb_crosswalk,by.x = "GEOID",by.y="ST.FIPS")
 
-    return(merge(va.ogr,x,by="GEOID"))
+    return(tmp)
   })
   
-csb_crosswalk <- read.csv("../data/CSB/CSB_FIPS_GIS.csv",stringsAsFactors = FALSE)
 
   
   bonnie2015 <- read.csv("../data/2015master.csv",stringsAsFactors = FALSE) %>%

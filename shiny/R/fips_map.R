@@ -38,6 +38,14 @@ output$fipsMap <- renderLeaflet({
   # alldrugs.pal <- fatalPalette(maps.df[["2016"]]$`All Drugs`)
   # allopioids.pal <- fatalPalette(maps.df[["2016"]]$`All Opioids`)
   
+  fips.pop <- paste0("<strong>County: </strong>", 
+                     DATASETS$maps.df[["2015"]]$NAME,
+         "<br><strong>FIPS: </strong>",
+         DATASETS$maps.df[["2015"]]$GEOID,
+         "<br><strong>CSB: </strong>",
+         DATASETS$maps.df[["2015"]]$CSBName)
+
+  
   print(names(DATASETS$maps.df))
   tmp <- DATASETS$maps.df[[as.character(input$yearFIPS)]] %>%
     leaflet() %>%
@@ -48,6 +56,7 @@ output$fipsMap <- renderLeaflet({
       weight = 1,
       color = "#b2aeae",
       fillOpacity = 0.6,
+      popup = fips.pop,
       fillColor = ~all.drugs.pal$pal(`All Drugs`),
       highlightOptions = highlightOptions(
         color = "white",
