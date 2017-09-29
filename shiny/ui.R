@@ -17,11 +17,16 @@ countyMetricsBox <- box(
   # dataTableOutput(NS(COUNTY.METRICS)("countyTable"))
 )
 
-countySummaryBox <- box(status = "warning",
+
+
+
+
+modelInputsBox <- box(status = "warning",
   width = 12,
   title = "Model Adjustments",
   # h2("Placeholder"),
-  fipsMapUI(FIPS.MAP)
+  # fipsMapUI(FIPS.MAP)$yearFIPS,
+  fipsMapUI(FIPS.MAP)$selectFeatures
   # style = 'padding: 0px;',
 
   # h2(textOutput(NS(COUNTY.METRICS)("countyTitle")))
@@ -35,19 +40,40 @@ mapsTabBox <-
     width = 12,
     id = "mapsTabSet",
     # style = 'padding: 0px;',
-    tabPanel(
-      title = "CSB",
-      value = "popMapTab",
-      # style = 'padding: 0px;',
-      leafletOutput(NS(CSB.MAP)("csbMap"))
-    ),
+
     tabPanel(
       title = "FIPS",
       value = "fipsMapTab",
       # style = 'padding: 0px;',
-      h2("Opioid Fatality Incidence Rates"),
+      fluidRow(
+        column(width = 2,
+               h3("Opioid Fatality Incidence Rates"),
+               box(width=12,fipsMapUI(FIPS.MAP)$yearFIPS)),
+        column(width =10,
       leafletOutput(NS(FIPS.MAP)("fipsMap"))
+        )
+    )),
+    tabPanel(
+      title = "CSB",
+      value = "popMapTab",
+      # style = 'padding: 0px;',
+      fluidRow(
+        
+        leafletOutput(NS(CSB.MAP)("csbMap"))
+        
+        
+      )),
+    tabPanel(
+      title = "Strategy",
+      value = "strategyMapTab",
+      # style = 'padding: 0px;',
+      h3("Identify counties whose needs are closest."),
+      fluidRow(
+        column(width = 2,box(width=12,strategyMapUI(STRATEGY.MAP))),
+        column(width =10,h2("placeholder")
+      # leafletOutput(NS(STRATEGY.MAP)("strategyMap"))
     )
+    ))
     # ,
     # tabPanel(
     #   title = "Mental Health Risk v. Population",
@@ -70,8 +96,8 @@ mapsTabBox <-
     #   title="Test Space",
     #   value = "testSpaceTab",
     #   verbatimTextOutput("clickText")
-    # )
-  )
+    )
+  
 
 # 
 # 
@@ -81,10 +107,10 @@ mapsTabBox <-
 body <- dashboardBody(
   fluidRow(
     column(width = 2,
-      countySummaryBox,
+      # modelInputsBox,
       textOutput("test")
       ),
-    column(width = 10,
+    column(width = 12,
            mapsTabBox
     )
   ),

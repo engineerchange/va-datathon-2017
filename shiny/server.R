@@ -32,6 +32,16 @@ shinyServer(function(input,output,session){
     fipsSelection=reactive(fipsInfo())
   )
   
+  strategy.info <- callModule(
+    strategyMapServer,
+    STRATEGY.MAP
+  )
+  
+  # strategyInfo <- reactive({
+  #   
+  #   strategy.info$strategySelection()
+  # })
+  
   
   
   

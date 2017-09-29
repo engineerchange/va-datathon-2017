@@ -16,12 +16,14 @@ require(jsonlite)
 source("./R/data_prep.R")
 source("./R/csb_map.R")
 source("./R/fips_map.R")
+source("./R/strategy_map.R")
 source("./R/fips_display.R")
 
 
 ## Namespaces
 CSB.MAP <- "csb.map"
 FIPS.MAP <- "fips.map"
+STRATEGY.MAP <- "strategy.map"
 FIPS.DISPLAY <- "fips.display"
 
 

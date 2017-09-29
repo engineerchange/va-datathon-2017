@@ -224,12 +224,26 @@ list(
 
 fipsMapUI <- function(id){
   ns <- NS(id)
+  ui.input <- tagList()
   
-  radioButtons(
+  ui.input$yearFIPS <- selectInput(
     inputId = ns("yearFIPS"),
+    multiple = FALSE,
     choices = 2012:2016,
     label = "Select Year:",
-    selected = 2015)
+    selected = 2016)
+  
+  ui.input$selectFeatures <- 
+    selectizeInput(
+      inputId = ns("selectFeatures"),
+      multiple = TRUE,
+      selected = NULL,
+      choices = c("Cat","Hat","Communist"),
+      label = "Select Features for Clustering:"
+      
+    )
+    
+  return(ui.input)
   
   
   

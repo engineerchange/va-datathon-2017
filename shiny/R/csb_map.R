@@ -63,6 +63,7 @@ csbMapServer <- function(input, output, session){
         weight = 1,
         layerId=~paste0("clf",OBJECTID),
         fillColor = ~statefund.pal$pal(`State.Funds`),
+        fillOpacity = 0.8,
         popup = csb.pop,
         labelOptions = labelOptions(
           style = list("font-weight" = "normal", padding = "3px 8px"),
@@ -85,6 +86,7 @@ csbMapServer <- function(input, output, session){
         color = "#b2aeae",
         weight = 1,
         layerId=~paste0("clf",OBJECTID),
+        fillOpacity = 0.8,
         fillColor = ~localfund.pal$pal(`Local.Funds`),
         popup = csb.pop,
         labelOptions = labelOptions(
@@ -104,6 +106,7 @@ csbMapServer <- function(input, output, session){
         layerId=~paste0("cna",OBJECTID),
         fillColor = ~netassets.pal$pal(`Total.Net.Assets`),
         popup = csb.pop,
+        fillOpacity = 0.8,
         labelOptions = labelOptions(
           style = list("font-weight" = "normal", padding = "3px 8px"),
           textsize = "15px",
