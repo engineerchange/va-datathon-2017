@@ -83,16 +83,18 @@ mapsTabBox <-
 body <- dashboardBody(
   fluidRow(
     column(width = 3,
-      countySummaryBox
+      countySummaryBox,
+      textOutput("test")
       ),
     column(width = 9,
-           textOutput("test")
+           mapsTabBox
     )
   ),
   fluidRow(
-    h2("placeholder"),
+    textOutput(NS(FIPS.MAP)("clickText")),
+    # h2("placeholder"),
     # leafletOutput(NS(CSB.MAP)("csbMap"))
-    mapsTabBox
+    dataTableOutput(NS(FIPS.DISPLAY)("fipsTable"))
   )
 )
 
