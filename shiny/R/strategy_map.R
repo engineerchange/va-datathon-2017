@@ -28,12 +28,12 @@ strategyMapServer <- function(input, output, session){
     ##DO API CALL / GET and return result below
     path <- 'http://localhost:5000'
     if(length(feature.array)>1 & !is.numeric(cluster.number)){
-      path <- paste0(path,"?","subset=['",glue::collapse(feature.array,sep="' '"),"']")
+      path <- paste0(path,"?","subset='",glue::collapse(feature.array,sep="','"),"'")
     
     } else   if(length(feature.array)>1){
       path <- paste0(path,
-                     "?","subset=['",glue::collapse(feature.array,sep="' '"),"']",
-                     "&n_clusters=",cluster.number)
+                     "?",
+                     "n_clusters=",cluster.number,"&","subset='",glue::collapse(feature.array,sep="','"),"'")
 
       
   } else {
@@ -262,7 +262,70 @@ strategyMapUI <- function(id){
       inputId = ns("selectFeatures"),
       multiple = TRUE,
       selected = NULL,
-      choices = c("Cat","Hat","Communist"),
+      choices = c('Opioid Rate per 100 per year',
+                   'Percent Below Poverty Level Estimate Population For Whom Poverty Status Is Determined',
+                   'Percent Below Poverty Level Estimate White Alone, Not Hispanic Or Latino',
+                   'Total Estimate All Individuals With Income Below The Following Poverty Ratios 50 Percent Of Poverty Level',
+                   'Total Estimate All Individuals With Income Below The Following Poverty Ratios 125 Percent Of Poverty Level',
+                   'Total Estimate All Individuals With Income Below The Following Poverty Ratios 150 Percent Of Poverty Level',
+                   'Total Estimate All Individuals With Income Below The Following Poverty Ratios 185 Percent Of Poverty Level',
+                   'Total Estimate All Individuals With Income Below The Following Poverty Ratios 200 Percent Of Poverty Level',
+                   'Total Estimate All Individuals With Income Below The Following Poverty Ratios 300 Percent Of Poverty Level',
+                   'Total Estimate All Individuals With Income Below The Following Poverty Ratios 400 Percent Of Poverty Level',
+                   'Total Estimate All Individuals With Income Below The Following Poverty Ratios 500 Percent Of Poverty Level',
+                   'Percent Below Poverty Level Estimate Unrelated Individuals For Whom Poverty Status Is Determined',
+                   'Percent Below Poverty Level Estimate Worked Fulltime, Yearround In The Past 12 Months',
+                   'Percent Below Poverty Level Estimate Worked Less Than Fulltime, Yearround In The Past 12 Months',
+                   'Percent Below Poverty Level Estimate Did Not Work',
+                   'Percent With A Disability Estimate Total Civilian Noninstitutionalized Population',
+                   'Percent With A Disability Estimate White Alone, Not Hispanic Or Latino',
+                   'Percent Households Receiving Food Stamps/SNAP Estimate Households',
+                   'Percent Households Not Receiving Food Stamps/SNAP Estimate Households',
+                   'Percent Estimate Household Type Marriedcouple Family',
+                   'Percent Households Receiving Food Stamps/SNAP Estimate Household Type Married couple Family',
+                   'Percent Households Not Receiving Food Stamps/SNAP Estimate Household Type Marriedcouple Family',
+                   'Percent Estimate Household Type Other Family:',
+                   'Percent Households Receiving Food Stamps/SNAP Estimate Household Type Other Family:',
+                   'Percent Households Not Receiving Food Stamps/SNAP Estimate Household Type Other Family:',
+                   'Percent Estimate Household Type Nonfamily Households',
+                   'Percent Households Receiving Food Stamps/SNAP Estimate Household Type Nonfamily Households',
+                   'Percent Households Not Receiving Food Stamps/SNAP Estimate Household Type Nonfamily Households',
+                   'Percent Estimate Poverty Status In The Past 12 Months Below Poverty Level',
+                   'Percent Households Receiving Food Stamps/SNAP Estimate Poverty Status In The Past 12 Months Below Poverty Level',
+                   'Percent Households Not Receiving Food Stamps/SNAP Estimate Poverty Status In The Past 12 Months Below Poverty Level',
+                   'Percent Estimate Poverty Status In The Past 12 Months At Or Above Poverty Level',
+                   'Percent Households Receiving Food Stamps/SNAP Estimate Poverty Status In The Past 12 Months At Or Above Poverty Level',
+                   'Percent Households Not Receiving Food Stamps/SNAP Estimate Poverty Status In The Past 12 Months At Or Above Poverty Level',
+                   'Percent Estimate Disability Status With One Or More People With A Disability',
+                   'Percent Households Receiving Food Stamps/SNAP Estimate Disability Status With One Or More People With A Disability',
+                   'Percent Households Not Receiving Food Stamps/SNAP Estimate Disability Status With One Or More People With A Disability',
+                   'Percent Estimate Disability Status With No Persons With A Disability',
+                   'Percent Households Receiving Food Stamps/SNAP Estimate Disability Status With No Persons With A Disability',
+                   'Percent Households Not Receiving Food Stamps/SNAP Estimate Disability Status With No Persons With A Disability',
+                   'Percent Estimate White Alone, Not Hispanic Or Latino',
+                   'Percent Households Receiving Food Stamps/SNAP Estimate White Alone, Not Hispanic Or Latino',
+                   'Percent Households Not Receiving Food Stamps/SNAP Estimate White Alone, Not Hispanic Or Latino',
+                   'Percent Households Receiving Food Stamps/SNAP Estimate Work Status Families No Workers In Past 12 Months',
+                   'Percent Households Not Receiving Food Stamps/SNAP Estimate Work Status Families No Workers In Past 12 Months',
+                   'Percent Households Receiving Food Stamps/SNAP Estimate Work Status Families 1 Worker In Past 12 Months',
+                   'Percent Households Not Receiving Food Stamps/SNAP Estimate Work Status Families 1 Worker In Past 12 Months',
+                   'Percent Estimate Work Status Families 2 Or More Workers In Past 12 Months',
+                   'Percent Households Receiving Food Stamps/SNAP Estimate Work Status Families 2 Or More Workers In Past 12 Months',
+                   'Percent Households Not Receiving Food Stamps/SNAP Estimate Work Status Families 2 Or More Workers In Past 12 Months',
+                   'Labor Force Participation Rate Estimate White Alone, Not Hispanic Or Latino',
+                   'Unemployment Rate Estimate White Alone, Not Hispanic Or Latino',
+                   'Labor Force Participation Rate Estimate Poverty Status In The Past 12 Months Below Poverty Level',
+                   'Unemployment Rate Estimate Poverty Status In The Past 12 Months Below Poverty Level',
+                   'Labor Force Participation Rate Estimate Poverty Status In The Past 12 Months At Or Above The Poverty Level',
+                   'Unemployment Rate Estimate Poverty Status In The Past 12 Months At Or Above The Poverty Level',
+                   'Labor Force Participation Rate Estimate Disability Status With Any Disability',
+                   'Unemployment Rate Estimate Disability Status With Any Disability',
+                   'Diagnosed Hiv', 'ED Heroin Overdose', 'ED Opioid Overdose',
+                   'Ems Narcan', 'Death Fentanylheroin', 'Death Prescription',
+                   'Neonatal Abstinance', 'Reported Hepatitis C',
+                   'Opioid Cost per Claim', 'Opioid Daily Supply per Claim',
+                   'Poverty Status (Last 12 months)', 'Disability (Percent Household)',
+                   'Food Stamps(Percent Household)'),
       label = "Select Features for Clustering:"
       
     )
