@@ -27,13 +27,13 @@ strategyMapServer <- function(input, output, session){
     
     ##DO API CALL / GET and return result below
     path <- 'http://localhost:5000'
-    if(length(feature.array)>1 & !is.numeric(cluster.number)){
-      path <- paste0(path,"?","subset='",glue::collapse(feature.array,sep="','"),"'")
+    if(length(feature.array)>0 & !is.numeric(cluster.number)){
+      path <- paste0(path,"?","subset=%5B'",glue::collapse(gsub(" ","%20",feature.array),sep="','"),"'%5D")
     
-    } else   if(length(feature.array)>1){
+    } else   if(length(feature.array)>0){
       path <- paste0(path,
                      "?",
-                     "n_clusters=",cluster.number,"&","subset='",glue::collapse(feature.array,sep="','"),"'")
+                     "n_clusters=",cluster.number,"&","subset=%5B'",glue::collapse(gsub(" ","%20",feature.array),sep="','"),"'%5D")
 
       
   } else {
