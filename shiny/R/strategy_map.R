@@ -242,7 +242,19 @@ list(
 
 }
 
-
+strategyMapPresentation <- function(id){
+  ns <- NS(id)
+  ui.input <- strategyMapUI(id)
+  presentation <- fluidRow(
+    column(width=2,
+           ui.input$clusterNumber),
+    column(width=8,
+           ui.input$selectFeatures),
+    column(width=2,
+           ui.input$queryAPI)
+  )
+  presentation
+}
 
 
 strategyMapUI <- function(id){
@@ -330,8 +342,11 @@ strategyMapUI <- function(id){
       
     )
   ui.input$queryAPI <- actionButton(
-    inputId = ns("queryAPI"),label = "Cluster!",icon = icon("hurricane",lib = "glyphicon")
-    
+    inputId = ns("queryAPI"),
+    label = "Cluster!",
+    #icon = icon("hurricane",lib = "glyphicon")
+    icon = icon("puzzle-piece"),
+    style="height:150px;width:150px;color: #fff; background-color: #337ab7; border-color: #2e6da4; font-size:150%"
   )
     
   return(ui.input)

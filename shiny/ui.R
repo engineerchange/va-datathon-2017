@@ -67,12 +67,14 @@ mapsTabBox <-
       title = "Strategy",
       value = "strategyMapTab",
       # style = 'padding: 0px;',
-      h3("Identify counties whose needs are closest."),
       fluidRow(
-        column(width = 2,box(width=12,strategyMapUI(STRATEGY.MAP))),
-        column(width =10,
-      leafletOutput(NS(STRATEGY.MAP)("strategyMap"))
-    )
+        
+        column(width=3,
+      h3("Identify counties whose needs are closest.")),
+        column(width = 9,box(width=12,strategyMapPresentation(STRATEGY.MAP)))),
+        # column(width =10,
+      leafletOutput(NS(STRATEGY.MAP)("strategyMap")
+    
     ))
     # ,
     # tabPanel(
