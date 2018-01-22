@@ -131,7 +131,7 @@ shinyUI(
   ui = dashboardPage(
     title = "APPLICATION",
     skin="yellow",
-    header = dashboardHeader(title = "Nosce Hostem",
+    header = dashboardHeader(title = "VA Governor's Datathon",
                              titleWidth = 450),
     sidebar = dashboardSidebar(disable=TRUE),
     body = body
