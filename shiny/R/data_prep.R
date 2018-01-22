@@ -17,6 +17,7 @@ datasets <- function() {
     select(-X,-DeathByYear) %>%
     filter(!is.na(Rate)) %>%
     filter( !GEOID %in% c(51019,51620,51760,51770)) %>%
+    # filter( !GEOID %in% c(51620,51760,51770)) %>%
     filter(Year > 2011) %>%
     spread(Drug,Rate) %>%
     mutate(Year = as.factor(Year))
@@ -48,7 +49,7 @@ datasets <- function() {
   
 
   
-  bonnie2015 <- read.csv("../data/2015master.csv",stringsAsFactors = FALSE) %>%
+  bonnie2015 <- read.csv("../data/2015master_hep.csv",stringsAsFactors = FALSE) %>%
     mutate(GEOCODE = as.character(FIPS.Code)) %>% 
     merge(.,csb_crosswalk,by.x="GEOCODE",by.y="ST.FIPS",all.x=TRUE)
   # opioidRx2016 <- read.csv("../data/healthcare-prescribers/2016prescriptions.csv")
@@ -85,7 +86,7 @@ datasets <- function() {
     spread(Type,`Incidence Rate`) %>%
     data.table::data.table(.,key="GEOCODE")
   
-  
+  print(colnames(fips.lookup))
   # Return outputs in a list
   output <- list(
     "csb.ogr" = csb.ogr,
